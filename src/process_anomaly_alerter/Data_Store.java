@@ -7,6 +7,7 @@ package process_anomaly_alerter;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
  *
@@ -23,15 +25,15 @@ public class Data_Store {
     
     public String[][] Fetch_Client_Credentials() {
 	String csvFile = "UserList.csv";
-	BufferedReader br = null;
+        File csv = new File(csvFile);
 	String line = "";
 	String cvsSplitBy = ",";
         int counter=0;
         String[][] Allusers = new String[100][3];
-	try {
-		br = new BufferedReader(new FileReader(csvFile));
-		while ((line = br.readLine()) != null) {
-			String[] Credentials = line.split(cvsSplitBy);
+        try {
+                Scanner scan_csv = new Scanner(csv);
+		while (scan_csv.hasNextLine()) {
+			String[] Credentials = scan_csv.nextLine().split(cvsSplitBy);
                         for(int i=0;i<3;i++)
                             Allusers[counter][i]=Credentials[i];
                         counter++;
@@ -40,15 +42,7 @@ public class Data_Store {
 		e.printStackTrace();
 	} catch (IOException e) {
 		e.printStackTrace();
-	} finally {
-		if (br != null) {
-			try {
-				br.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+	} 
         return Allusers;
     }
     
@@ -57,7 +51,7 @@ public class Data_Store {
     Writer writer = null;
     try {
         writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream(Client_Name+"_"+host+".log"), StandardCharsets.UTF_8));
+                new FileOutputStream(host+".log"), StandardCharsets.UTF_8));
 // For appending the log file instead of overwriting                new FileOutputStream(Client_Name+"_"+host+".log",true), StandardCharsets.UTF_8));
         writer.write(Log_Data);
     } catch (IOException ex) {

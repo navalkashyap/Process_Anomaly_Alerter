@@ -36,7 +36,7 @@ class DoLogin_FetchData implements Runnable{
     String password = "";
     String host = "";
     String User_List_File="UserList.csv";
-    String cmd="ps -eo comm= | sed 's|.*/||'";
+    String cmd="ps -aux | sed 's/\\s\\+/,/g'";
     int port=22;
     
     DoLogin_FetchData(String user,String password, String host){
@@ -79,9 +79,9 @@ class DoLogin_FetchData implements Runnable{
             dataIn.readLine();
             while(!dataIn.readLine().contains(cmd));        
             while ((line = dataIn.readLine()) != null) 
-                if(!line.contains(user))
-                    result += line + "\n";
-// add time                    result += ft.format(date) +","+line + "\n";
+                if(line.contains(","))
+           //         result += line + "\n";
+                  result += ft.format(date) +","+line + "\n";
             
         
             dataIn.close();  
