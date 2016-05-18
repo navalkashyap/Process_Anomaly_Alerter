@@ -88,7 +88,8 @@ class DoLogin_FetchData implements Runnable{
         
             while ((line = dataIn.readLine()) != null) 
                 if(!line.contains(user))
-                    result += ft.format(date) +","+line + "\n";
+                    result += line + "\n";
+// add time                    result += ft.format(date) +","+line + "\n";
             
         
             dataIn.close();  

@@ -58,7 +58,8 @@ public class Data_Store {
     Writer writer = null;
     try {
         writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream(Client_Name+"_"+host+".log",true), StandardCharsets.UTF_8));
+                new FileOutputStream(Client_Name+"_"+host+".log"), StandardCharsets.UTF_8));
+// For appending the log file instead of overwriting                new FileOutputStream(Client_Name+"_"+host+".log",true), StandardCharsets.UTF_8));
         writer.write(Log_Data);
     } catch (IOException ex) {
         return false;
