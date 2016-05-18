@@ -12,6 +12,8 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,37 +24,39 @@ import java.util.logging.Logger;
  */
 public class Remote_Login_Service {
 
-    String user = "";
-    String password = "";
-    String host = "";
-    
     Remote_Login_Service() {
         int counter=0;
         Data_Store DS = new Data_Store();
-        String[][] AllClients_Credentials = DS.Fetch_Client_Credentials();
-        while(AllClients_Credentials[counter][0] != null){
-            Thread thread = new Thread(new DoLogin_FetchData(AllClients_Credentials[counter][0],AllClients_Credentials[counter][1],AllClients_Credentials[counter][2]));
+        String[][] AllCC = DS.Fetch_Client_Credentials();
+        while(AllCC[counter][0] != null){
+            Thread thread = new Thread(new DoLogin_FetchData(AllCC[counter][0],AllCC[counter][1],AllCC[counter++][2]));
             thread.start();
-            counter++;
         }
     }
 }
 
 
 class DoLogin_FetchData implements Runnable{
-
-    int port=22;
+    String user = "";
+    String password = "";
+    String host = "";
     String User_List_File="UserList.csv";
     String cmd="ps -eo comm= | sed 's|.*/||'";
-    
-    @Override
-    public void run() {
-        System.out.println("running thread");
-    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    int port=22;
     
     DoLogin_FetchData(String user,String password, String host){
-        Log_Collector LC = new Log_Collector();
+        this.user=user;
+        this.password=password;
+        this.host=host;
+    }
+
+    @Override
+    public void run() {
+        Date date = new Date();
+        String line = "";
+        String result = "";
+        SimpleDateFormat ft =  new SimpleDateFormat ("hh:mm:ss");
+
         try {
             JSch jsch = new JSch();
             Session session = jsch.getSession(user, host, port);
@@ -61,11 +65,9 @@ class DoLogin_FetchData implements Runnable{
             System.out.println("Establishing Connection for host: "+host);
 
             // Avoid asking for key confirmation
-    
             Properties prop = new Properties();
             prop.put("StrictHostKeyChecking", "no");
             session.setConfig(prop);
-
             session.connect();
 
             Channel channel = session.openChannel("shell");
@@ -79,21 +81,25 @@ class DoLogin_FetchData implements Runnable{
             dataOut.flush();  
 
             // and print the response   
-            String line = dataIn.readLine();
-            String result = line + "\n";
+            System.out.println(dataIn.readLine());
+            while(!dataIn.readLine().contains(cmd));
+ //           System.out.println(dataIn.readLine());
+ //           System.out.println(dataIn.readLine());
         
-            while ((line = dataIn.readLine()) != null) {
-                result += line + "\n";
-                System.out.println("Logger: "+line);
-            }
+            while ((line = dataIn.readLine()) != null) 
+                if(!line.contains(user))
+                    result += ft.format(date) +","+line + "\n";
+            
         
             dataIn.close();  
             dataOut.close();  
             channel.disconnect();  
             session.disconnect();
+            Log_Collector LC = new Log_Collector();
             LC.Collect_Log(user,host, result);
+            
+            System.out.println("Logs uploaded at "+ft.format(date)+"...Connection terminated successfully!!");
         } catch(Exception e){System.err.print(e);
         }    
-    }
-    
+    }    
 }
