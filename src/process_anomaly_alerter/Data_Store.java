@@ -20,41 +20,6 @@ import java.nio.charset.StandardCharsets;
  * @author naval_
  */
 public class Data_Store {
-    public void Data_Store(){
-        
-    }
-    
-    public int Fetch_list_of_Clients(){
-        String csvFile = "UserList.csv";
-	BufferedReader br = null;
-	String line = "";
-	String cvsSplitBy = ",";
-        int counter=0;
-        String[] Allusers = new String[100];
-	try {
-		br = new BufferedReader(new FileReader(csvFile));
-		while ((line = br.readLine()) != null) {
-			String[] Credentials = line.split(cvsSplitBy);
-                        Allusers[counter++]=Credentials[0];
-			System.out.println("Credentials [Name= " + Credentials[0] + "]");
-		}
-	} catch (FileNotFoundException e) {
-		e.printStackTrace();
-	} catch (IOException e) {
-		e.printStackTrace();
-	} finally {
-		if (br != null) {
-			try {
-				br.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}        
-        return counter;
-    }
-    
-    
     
     public String[][] Fetch_Client_Credentials() {
 	String csvFile = "UserList.csv";
@@ -70,7 +35,7 @@ public class Data_Store {
                         for(int i=0;i<3;i++)
                             Allusers[counter][i]=Credentials[i];
                         counter++;
-                        System.out.println("Credentials [Name= " + Credentials[0] + " , Password= " + Credentials[1] + " Host= "+Credentials[2]+ "]");
+                      //  System.out.println("Credentials [Name= " + Credentials[0] + " , Password= " + Credentials[1] + " Host= "+Credentials[2]+ "]");
 		}
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();
