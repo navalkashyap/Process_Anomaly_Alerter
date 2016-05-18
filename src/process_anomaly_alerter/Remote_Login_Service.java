@@ -75,7 +75,7 @@ class DoLogin_FetchData implements Runnable{
             DataOutputStream dataOut = new DataOutputStream(channel.getOutputStream());  
 
             // send ls command to the server  
-            dataOut.writeBytes(cmd+"\r\n \n exit\r\n");  
+            dataOut.writeBytes(cmd+"\r\n exit\r\n");  
             dataOut.flush();  
 
             // and print the response   

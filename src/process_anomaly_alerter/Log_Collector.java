@@ -5,6 +5,8 @@
  */
 package process_anomaly_alerter;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author naval_
@@ -15,7 +17,7 @@ public class Log_Collector {
 
         Data_Store DS = new Data_Store();
         if(!DS.Store_Data(user,host,Log_Data)){
-            System.out.println("I/O issues, couldn't save the logs for user_host :"+user+"_"+host);
+            Logger.getLogger("I/O issues, couldn't save the logs for user_host :"+user+"_"+host);
             return false;
         }
         return true;
