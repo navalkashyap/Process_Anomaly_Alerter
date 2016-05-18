@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package process_anomaly_alerter;
+package process_anomaly_alerter.Log_Collection;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

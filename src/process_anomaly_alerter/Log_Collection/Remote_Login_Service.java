@@ -1,4 +1,4 @@
-package process_anomaly_alerter;
+package process_anomaly_alerter.Log_Collection;
 
 import com.jcraft.jsch.Channel;
 import com.jcraft.jsch.ChannelExec;
