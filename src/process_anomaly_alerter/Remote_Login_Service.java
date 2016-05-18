@@ -43,6 +43,7 @@ class DoLogin_FetchData implements Runnable{
 
     int port=22;
     String User_List_File="UserList.csv";
+    String cmd="ps -eo comm= | sed 's|.*/||'";
     
     @Override
     public void run() {
@@ -74,7 +75,7 @@ class DoLogin_FetchData implements Runnable{
             DataOutputStream dataOut = new DataOutputStream(channel.getOutputStream());  
 
             // send ls command to the server  
-            dataOut.writeBytes("ps -ef\r\n \n exit\r\n");  
+            dataOut.writeBytes(cmd+"\r\n \n exit\r\n");  
             dataOut.flush();  
 
             // and print the response   
