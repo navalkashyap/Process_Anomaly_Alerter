@@ -19,6 +19,7 @@ public class SendEmail {
 		Properties props = new Properties();
                 final String hostEmail="bellevue148@gmail.com";
                 final String hostPassword="";
+                String msg = "Hello World!";
 		props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.socketFactory.port", "465");
 		props.put("mail.smtp.socketFactory.class",
@@ -43,7 +44,7 @@ public class SendEmail {
                         message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
                         
                         message.setSubject("Testing Subject");
-			message.setText("Dear Mail Crawler," +
+			message.setText(msg +
 					"\n\n No spam to my email, please!");
 
 			Transport.send(message);
