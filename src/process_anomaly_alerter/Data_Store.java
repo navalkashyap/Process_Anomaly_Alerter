@@ -35,7 +35,6 @@ public class Data_Store {
                         for(int i=0;i<3;i++)
                             Allusers[counter][i]=Credentials[i];
                         counter++;
-                      //  System.out.println("Credentials [Name= " + Credentials[0] + " , Password= " + Credentials[1] + " Host= "+Credentials[2]+ "]");
 		}
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();

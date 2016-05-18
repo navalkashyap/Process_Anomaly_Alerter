@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package process_anomaly_alerter;
 
 import com.jcraft.jsch.Channel;
@@ -81,11 +76,8 @@ class DoLogin_FetchData implements Runnable{
             dataOut.flush();  
 
             // and print the response   
-            System.out.println(dataIn.readLine());
-            while(!dataIn.readLine().contains(cmd));
- //           System.out.println(dataIn.readLine());
- //           System.out.println(dataIn.readLine());
-        
+            dataIn.readLine();
+            while(!dataIn.readLine().contains(cmd));        
             while ((line = dataIn.readLine()) != null) 
                 if(!line.contains(user))
                     result += line + "\n";
