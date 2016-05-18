@@ -21,7 +21,7 @@ public class SendEmail {
 	void SendEmail(String msg){
 		Properties props = new Properties();
                 final String hostEmail="bellevue148@gmail.com";
-                final String hostPassword="Bellevue@148";
+                final String hostPassword="";
                 props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.socketFactory.port", "465");
 		props.put("mail.smtp.socketFactory.class",
