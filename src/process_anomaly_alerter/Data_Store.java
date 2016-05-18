@@ -68,8 +68,9 @@ public class Data_Store {
 		while ((line = br.readLine()) != null) {
 			String[] Credentials = line.split(cvsSplitBy);
                         for(int i=0;i<3;i++)
-                            Allusers[counter++][i]=Credentials[i];
-                            System.out.println("Credentials [Name= " + Credentials[0] + " , Password= " + Credentials[1] + " Host= "+Credentials[2]+ "]");
+                            Allusers[counter][i]=Credentials[i];
+                        counter++;
+                        System.out.println("Credentials [Name= " + Credentials[0] + " , Password= " + Credentials[1] + " Host= "+Credentials[2]+ "]");
 		}
 	} catch (FileNotFoundException e) {
 		e.printStackTrace();

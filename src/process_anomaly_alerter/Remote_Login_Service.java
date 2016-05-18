@@ -31,8 +31,9 @@ public class Remote_Login_Service {
         Data_Store DS = new Data_Store();
         String[][] AllClients_Credentials = DS.Fetch_Client_Credentials();
         while(AllClients_Credentials[counter][0] != null){
-            Thread thread = new Thread(new DoLogin_FetchData(AllClients_Credentials[counter++][0],AllClients_Credentials[counter++][1],AllClients_Credentials[counter++][2]));
+            Thread thread = new Thread(new DoLogin_FetchData(AllClients_Credentials[counter][0],AllClients_Credentials[counter][1],AllClients_Credentials[counter][2]));
             thread.start();
+            counter++;
         }
     }
 }
