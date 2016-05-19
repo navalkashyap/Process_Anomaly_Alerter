@@ -4,90 +4,108 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Properties;
+import java.io.FileWriter;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMessage.RecipientType;
+// This class implies a Log Anomaly Detector tool that detects anomalies based on logs
+public class AnomalyDetector1_detectbasedonOldlogs {
 
+	static ArrayList<String> anomalies = new ArrayList<String>();
+	static StringBuilder anomaly = new StringBuilder();
+	static HashSet<String> oldLogHashSet = new HashSet<String>();
 
-public class anomalydetector1 {
-	ArrayList<String> anomalies = new ArrayList<String>();
-	StringBuilder anomaly = new StringBuilder();
-	
-	public  detectAnomaliesAndEmail {
-		SearchLogFiles();
-		System.out.println(anomalies);
-		sendEmailToAdministrator();
+	// This Constructor will be called by the Detection Initiator to execute the tool
+	// This tool will look at the new logs and find if there are new anomaly processes
+	// If yes, it will alert the Administrator
+	// newLogFile: new log Fie object for fetching the new logs
+	// IPAddress: ip address of the client
+	// isTrainingProcess: It lets us know if the initiator has initiated a training process or not
+	public AnomalyDetector1_detectbasedonOldlogs(File newLogfile, String IPAddress, boolean isTrainingProcess) {
+		File oldLogfile = new File("oldLogs.txt");
+		SearchLogFiles(oldLogfile);
+		boolean isAnomalyFound = compareLogData(newLogfile);
+		if(isAnomalyFound && !isTrainingProcess) {
+			SendEmail sendEmailObject = new SendEmail();
+			sendEmailObject.SendEmail(anomaly, IPAddress);
+		}
 	}
 	
-	public static void SearchLogFiles(){
-		File oldLogfile = new File("/Users/Arwen/Documents/Software Architecture/Project/logs3.txt");
-		File newLogfile = new File("/Users/Arwen/Documents/Software Architecture/Project/logs4.txt");
-		HashSet<String> oldLogHashMap = new HashSet<String>();
-		Scanner scanNewLogFile, scanOldLogFile;
+	// This method is used to scan the old log file and storing that in a hash set
+	// oldLogFile: the old log File Object used to fetch old logs
+	public static void SearchLogFiles(File oldLogfile){	
+		Scanner scanOldLogFile;
 		try {
 			scanOldLogFile = new Scanner(oldLogfile);
-			scanNewLogFile = new Scanner(newLogfile);
 			while(scanOldLogFile.hasNextLine()) {
-					oldLogHashMap.add(scanOldLogFile.nextLine());
+				String lastlogpart = FetchLastLogPart(scanOldLogFile.nextLine());
+				oldLogHashSet.add(lastlogpart);
 				}
-			while(scanNewLogFile.hasNextLine()) {
-				String logdata = scanNewLogFile.nextLine();
-				if(!oldLogHashMap.contains(logdata))
-						anomalies.add(logdata);
-			}
-			for(String a : anomalies){
-				anomaly.append(a);
-				anomaly.append("\n");
-			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
 	}
-	
-	public static void sendEmailToAdministrator(){
-		String str;
-		final String username = "bellevue148@gmail.com";
-		final String password = "";
 
-		Properties props = new Properties();
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
+	// This method is used Split the log data to fetch the last column of the data(the process name/command running)
+	// logdata: logdata that needs to splitted
+	public static String FetchLastLogPart(String logdata){
+		String[] logparts = logdata.split(",");
+		String lastLogPart = logparts[logparts.length - 1];
+		return lastLogPart;
+	}
 
-		Session session = Session.getInstance(props,
-		  new javax.mail.Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
-			}
-		  });
-
+	// This method compares the Old log file data with the new log file data and creates a String of anomalies if found
+	// newLogFile : new log Fie object for fetching the new logs
+	public static boolean compareLogData(File newLogfile){
+		Scanner scanNewLogFile;
+		boolean FLAG = false;
 		try {
-
-			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("bellevue148@gmail.com"));
-			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse("abirami@uw.edu"));
-			message.addRecipient(RecipientType.CC, new InternetAddress("navalk@uw.edu"));
-			message.addRecipient(RecipientType.CC, new InternetAddress("svasisht@uw.edu"));
-			message.addRecipient(RecipientType.CC, new InternetAddress("swetha91@uw.edu"));
-			message.setSubject("Alert: Anomaly Processes Found in the Client Machine");
-			message.setText("Theses are the processes that were found to be running as Anomalies \n" + anomaly);
-			
-			Transport.send(message);
-
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
+			scanNewLogFile = new Scanner(newLogfile);
+			FileWriter writerOut = openOldLogFileToWrite();
+			while(scanNewLogFile.hasNextLine()) {
+				String logdata = FetchLastLogPart(scanNewLogFile.nextLine());
+				if(!oldLogHashSet.contains(logdata)) {
+						anomalies.add(logdata);
+						writeNewLogToOldLogs(writerOut, logdata);
+					}
+			}
+			writerOut.close();
+			for(String a : anomalies){
+				anomaly.append(a);
+				anomaly.append("\n");
+				FLAG = true;
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-	}  
-    
-	
+		return FLAG;
+
+	}
+
+	// This method writes new logs to old log file 
+	// writerOut : FileWriter Object used to write
+	// logdata : logdata to be written
+	public static void writeNewLogToOldLogs(FileWriter writerOut, String logdata){
+		try {
+			writerOut.write(logdata + "\n");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	// This method opens the Old Log file for appending the new logs 
+	// returns FileWriter Object to write with
+	public static FileWriter openOldLogFileToWrite(){
+		FileWriter fw = null;
+		try {
+	   		fw = new FileWriter("oldLogs.txt", true);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	return fw;
+	}
 
 }
