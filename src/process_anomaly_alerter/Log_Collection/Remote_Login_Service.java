@@ -78,12 +78,19 @@ class DoLogin_FetchData implements Runnable{
             // and print the response   
             dataIn.readLine();
             while(!dataIn.readLine().contains(cmd));        
+            while(!dataIn.readLine().contains("COMMAND"));        
             while ((line = dataIn.readLine()) != null) 
-                if(line.contains(","))
-           //         result += line + "\n";
-                  result += ft.format(date) +","+line + "\n";
+                if(line.contains(",")){
+                    String templine="",temp[] = line.split(",");
+                    for(int i = 0;i<temp.length;i++){
+                        if(i<10)
+                            templine=templine+temp[i]+",";
+                        else
+                            templine=templine+temp[i]+" ";
+                    }
+                    result += ft.format(date) +","+templine + "\n";
             
-        
+                }
             dataIn.close();  
             dataOut.close();  
             channel.disconnect();  
