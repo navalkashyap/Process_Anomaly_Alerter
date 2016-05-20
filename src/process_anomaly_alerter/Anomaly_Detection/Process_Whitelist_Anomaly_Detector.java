@@ -7,7 +7,7 @@ import java.util.Properties;
 import java.io.FileWriter;
 
 // This class implies a Log Anomaly Detector tool that detects anomalies based on logs
-public class AnomalyDetector1_detectbasedonOldlogs {
+public class Process_Whitelist_Anomaly_Detector {
 
 	static ArrayList<String> anomalies = new ArrayList<String>();
 	static StringBuilder anomaly = new StringBuilder();
@@ -19,7 +19,7 @@ public class AnomalyDetector1_detectbasedonOldlogs {
 	// newLogFile: new log Fie object for fetching the new logs
 	// IPAddress: ip address of the client
 	// isTrainingProcess: It lets us know if the initiator has initiated a training process or not
-	public AnomalyDetector1_detectbasedonOldlogs(File newLogfile, String IPAddress, boolean isTrainingProcess) {
+	public Process_Whitelist_Anomaly_Detector(File newLogfile, String IPAddress, boolean isTrainingProcess) {
 		File oldLogfile = new File("oldLogs.txt");
 		SearchLogFiles(oldLogfile);
 		boolean isAnomalyFound = compareLogData(newLogfile);
