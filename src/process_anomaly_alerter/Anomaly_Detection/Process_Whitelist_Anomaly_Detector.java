@@ -1,3 +1,5 @@
+package process_anomaly_alerter.Anomaly_Detection;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -5,6 +7,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Properties;
 import java.io.FileWriter;
+import java.io.IOException;
 
 // This class implies a Log Anomaly Detector tool that detects anomalies based on logs
 public class Process_Whitelist_Anomaly_Detector {

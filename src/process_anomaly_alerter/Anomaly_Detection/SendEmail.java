@@ -18,7 +18,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
-	void SendEmail(String msg){
+	void SendEmail(StringBuilder msg,String IpAdress){
 		Properties props = new Properties();
                 final String hostEmail="bellevue148@gmail.com";
                 final String hostPassword="";
