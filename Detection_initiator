@@ -1,0 +1,35 @@
+package Log_Collection;
+import java.io.File;
+import java.util.Timer;
+import java.util.TimerTask;
+import Anomaly_Detection.Process_Memory_Anomaly_Detector;
+import Anomaly_Detection.Process_Whitelist_Anomaly_Detector;
+
+public class Detection_initator extends TimerTask {
+
+	@Override
+	public void run() {
+		 Data_Store DS = new Data_Store();
+		 String[][] Allusers= DS.Fetch_Client_Credentials(); 
+		 for(int i=0; i<Allusers.length; i++)
+		 {
+			String fileName =  Allusers[i][2] +".log"; 
+			
+			//PLEASE NOTE: THIS IS NOT THE FINAL!! Parameters are to be added here properly after editing is done. 
+			new Process_Whitelist_Anomaly_Detector(new File(fileName), Allusers[i][1],true);
+			new Process_Memory_Anomaly_Detector(new File(fileName), Allusers[i][1], ); 
+			
+		 }
+		
+	} 
+	public void setTimer(){ 
+		Timer timer = new Timer();
+		//delay in ms,time in ms between successive task operations 
+		timer.schedule(new Detection_initator(), 0, 10000);
+	}
+	
+}
+	
+	
+	
+
