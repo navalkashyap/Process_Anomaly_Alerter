@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author naval_
  *
  * This component is used to collect the logs from the clients
- *  and send to the log collector componen
+ *  and send to the log collector component
 */
 public class Remote_Login_Service {
 

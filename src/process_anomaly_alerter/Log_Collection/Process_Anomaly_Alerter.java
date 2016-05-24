@@ -17,9 +17,10 @@ public class Process_Anomaly_Alerter {
      */
     public static void main(String[] args) throws InterruptedException {
         int iteration_period = 10000;  // in milliseconds
-        Remote_Login_Service rms = new Remote_Login_Service(iteration_period) ;
-    
         Thread DI = new Thread(new Detection_Initiator());
         DI.start();        
+
+        //Remote_Login_Service rms = new Remote_Login_Service(iteration_period) ;
+    
     }
 }

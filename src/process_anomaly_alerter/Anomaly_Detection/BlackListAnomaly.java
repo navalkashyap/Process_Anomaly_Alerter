@@ -1,4 +1,4 @@
-package processanomaly;
+package process_anomaly_alerter.Anomaly_Detection;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,30 +20,31 @@ import java.util.Scanner;
  * @author Sneha
  */
 // This class demonstrates an anomaly detection tool that identifies a blacklisted process in the log file and throws an alert 
-public class BlacklistAnomaly 
-{    
-    public static void main(String[] args) throws IOException 
-    {
-        readFromFile();     
+public class BlackListAnomaly {    
+
+    
+    public BlackListAnomaly(File newLogfile, String IPAddress, boolean isTrainingProcess) throws IOException {
+        readFromFile(newLogfile);
     }
+    
     //This method is used to read and split the log files to fetch the processName column
-    public static void readFromFile() throws FileNotFoundException, IOException
+    public static void readFromFile(File newLogfile) throws FileNotFoundException, IOException
     {        
-        BufferedReader br = new BufferedReader(new FileReader("/Users/Sneha/log2.txt"));
+        Scanner SC = new Scanner(newLogfile);
         String line;
-        while((line = br.readLine()) != null)
+        while((line = SC.nextLine()) != null)
         {
-            String[] splited = line.split("\\t");
+            String[] splited = line.split(",");
             
-            checkIfBlackListedProcess(splited[3]);
+            checkIfBlackListedProcess(splited[11]);
         }
-        br.close();
+        SC.close();
     }
     // This method is used to check if a blacklist process is present in the log file
     public static void checkIfBlackListedProcess(String processName) throws FileNotFoundException, IOException
     {
         //Reading from blacklist.txt to an ArrayList
-        BufferedReader in = new BufferedReader(new FileReader("/Users/Sneha/Documents/blacklist.txt"));
+        BufferedReader in = new BufferedReader(new FileReader("blacklist.txt"));
         String str;
         ArrayList<String> list = new ArrayList<String>();
         while((str = in.readLine()) != null){
