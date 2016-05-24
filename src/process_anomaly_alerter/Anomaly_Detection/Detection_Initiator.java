@@ -18,13 +18,14 @@ public class Detection_Initiator extends TimerTask {
 		 {
 			String fileName =  Allusers[i][2] +".log"; 
 			//PLEASE NOTE: THIS IS NOT THE FINAL!! Parameters are to be added here properly after editing is done. 
-			new Process_Whitelist_Anomaly_Detector(new File(fileName), Allusers[i][2],true);
+			new Process_Whitelist_Anomaly_Detector(new File(fileName), Allusers[i][2],false);
 			new Process_Memory_Anomaly_Detector(new File(fileName), Allusers[i][2],true ); 			
-                     try {
+                     /*try {
                          new BlackListAnomaly(new File(fileName), Allusers[i][2],true);
                      } catch (IOException ex) {
                          Logger.getLogger(Detection_Initiator.class.getName()).log(Level.SEVERE, null, ex);
                      }
+                             */
                  }
 	} 
 	public void setTimer(){ 

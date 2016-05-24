@@ -23,7 +23,7 @@ public class Process_Whitelist_Anomaly_Detector {
 	// IPAddress: ip address of the client
 	// isTrainingProcess: It lets us know if the initiator has initiated a training process or not
 	public Process_Whitelist_Anomaly_Detector(File newLogfile, String IPAddress, boolean isTrainingProcess) {
-		File oldLogfile = new File("oldLogs.txt");
+		File oldLogfile = new File("Whitelist_Trained_Logs.log");
 		SearchLogFiles(oldLogfile);
 		boolean isAnomalyFound = compareLogData(newLogfile);
 		if(isAnomalyFound && !isTrainingProcess) {
