@@ -1,245 +1,231 @@
-Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 4.2.0-27-generic i686)
-
- * Documentation:  https://help.ubuntu.com/
-
-21 packages can be updated.
-21 updates are security updates.
-
-*** System restart required ***
-Last login: Tue May 17 10:46:57 2016 from 192.168.188.1
-
-ps -ef
-
- 
- exit
-
-naval@ubuntu:~$ ps -ef
-UID        PID  PPID  C STIME TTY          TIME CMD
-root         1     0  0 May15 ?        00:00:02 /sbin/init
-root         2     0  0 May15 ?        00:00:00 [kthreadd]
-root         3     2  0 May15 ?        00:00:09 [ksoftirqd/0]
-root         5     2  0 May15 ?        00:00:00 [kworker/0:0H]
-root         7     2  0 May15 ?        00:00:30 [rcu_sched]
-root         8     2  0 May15 ?        00:00:00 [rcu_bh]
-root         9     2  0 May15 ?        00:00:00 [migration/0]
-root        10     2  0 May15 ?        00:00:01 [watchdog/0]
-root        11     2  0 May15 ?        00:00:00 [khelper]
-root        12     2  0 May15 ?        00:00:00 [kdevtmpfs]
-root        13     2  0 May15 ?        00:00:00 [netns]
-root        14     2  0 May15 ?        00:00:00 [perf]
-root        15     2  0 May15 ?        00:00:00 [khungtaskd]
-root        16     2  0 May15 ?        00:00:00 [writeback]
-root        17     2  0 May15 ?        00:00:00 [ksmd]
-root        18     2  0 May15 ?        00:00:34 [khugepaged]
-root        19     2  0 May15 ?        00:00:00 [crypto]
-root        20     2  0 May15 ?        00:00:00 [kintegrityd]
-root        21     2  0 May15 ?        00:00:00 [bioset]
-root        22     2  0 May15 ?        00:00:00 [kblockd]
-root        23     2  0 May15 ?        00:00:00 [ata_sff]
-root        24     2  0 May15 ?        00:00:00 [md]
-root        25     2  0 May15 ?        00:00:00 [devfreq_wq]
-root        29     2  0 May15 ?        00:01:17 [kswapd0]
-root        30     2  0 May15 ?        00:00:00 [fsnotify_mark]
-root        31     2  0 May15 ?        00:00:00 [ecryptfs-kthrea]
-root        42     2  0 May15 ?        00:00:00 [kthrotld]
-root        43     2  0 May15 ?        00:00:00 [acpi_thermal_pm]
-root        45     2  0 May15 ?        00:00:00 [scsi_eh_0]
-root        46     2  0 May15 ?        00:00:00 [scsi_tmf_0]
-root        47     2  0 May15 ?        00:00:00 [scsi_eh_1]
-root        48     2  0 May15 ?        00:00:00 [scsi_tmf_1]
-root        50     2  0 May15 ?        00:00:00 [ipv6_addrconf]
-root        71     2  0 May15 ?        00:00:00 [deferwq]
-root        72     2  0 May15 ?        00:00:00 [charger_manager]
-root       118     2  0 May15 ?        00:00:00 [scsi_eh_2]
-root       119     2  0 May15 ?        00:00:00 [scsi_tmf_2]
-root       120     2  0 May15 ?        00:00:00 [mpt_poll_0]
-root       121     2  0 May15 ?        00:00:00 [scsi_eh_3]
-root       122     2  0 May15 ?        00:00:00 [mpt/0]
-root       123     2  0 May15 ?        00:00:00 [scsi_tmf_3]
-root       124     2  0 May15 ?        00:00:00 [scsi_eh_4]
-root       125     2  0 May15 ?        00:00:00 [scsi_tmf_4]
-root       126     2  0 May15 ?        00:00:00 [scsi_eh_5]
-root       127     2  0 May15 ?        00:00:00 [scsi_tmf_5]
-root       128     2  0 May15 ?        00:00:00 [scsi_eh_6]
-root       129     2  0 May15 ?        00:00:00 [scsi_tmf_6]
-root       130     2  0 May15 ?        00:00:00 [kpsmoused]
-root       131     2  0 May15 ?        00:00:00 [scsi_eh_7]
-root       132     2  0 May15 ?        00:00:00 [scsi_tmf_7]
-root       133     2  0 May15 ?        00:00:00 [scsi_eh_8]
-root       134     2  0 May15 ?        00:00:00 [scsi_tmf_8]
-root       135     2  0 May15 ?        00:00:00 [scsi_eh_9]
-root       136     2  0 May15 ?        00:00:00 [scsi_tmf_9]
-root       137     2  0 May15 ?        00:00:00 [scsi_eh_10]
-root       138     2  0 May15 ?        00:00:00 [scsi_tmf_10]
-root       139     2  0 May15 ?        00:00:00 [scsi_eh_11]
-root       140     2  0 May15 ?        00:00:00 [scsi_tmf_11]
-root       141     2  0 May15 ?        00:00:00 [scsi_eh_12]
-root       142     2  0 May15 ?        00:00:00 [scsi_tmf_12]
-root       143     2  0 May15 ?        00:00:00 [scsi_eh_13]
-root       144     2  0 May15 ?        00:00:00 [scsi_tmf_13]
-root       145     2  0 May15 ?        00:00:00 [scsi_eh_14]
-root       146     2  0 May15 ?        00:00:00 [scsi_tmf_14]
-root       147     2  0 May15 ?        00:00:00 [scsi_eh_15]
-root       148     2  0 May15 ?        00:00:00 [scsi_tmf_15]
-root       149     2  0 May15 ?        00:00:00 [scsi_eh_16]
-root       150     2  0 May15 ?        00:00:00 [scsi_tmf_16]
-root       151     2  0 May15 ?        00:00:00 [scsi_eh_17]
-root       152     2  0 May15 ?        00:00:00 [scsi_tmf_17]
-root       153     2  0 May15 ?        00:00:00 [scsi_eh_18]
-root       154     2  0 May15 ?        00:00:00 [scsi_tmf_18]
-root       155     2  0 May15 ?        00:00:00 [scsi_eh_19]
-root       156     2  0 May15 ?        00:00:00 [scsi_tmf_19]
-root       157     2  0 May15 ?        00:00:00 [scsi_eh_20]
-root       158     2  0 May15 ?        00:00:00 [scsi_tmf_20]
-root       159     2  0 May15 ?        00:00:00 [scsi_eh_21]
-root       160     2  0 May15 ?        00:00:00 [scsi_tmf_21]
-root       161     2  0 May15 ?        00:00:00 [scsi_eh_22]
-root       162     2  0 May15 ?        00:00:00 [scsi_tmf_22]
-root       163     2  0 May15 ?        00:00:00 [scsi_eh_23]
-root       164     2  0 May15 ?        00:00:00 [scsi_tmf_23]
-root       165     2  0 May15 ?        00:00:00 [scsi_eh_24]
-root       166     2  0 May15 ?        00:00:00 [scsi_tmf_24]
-root       167     2  0 May15 ?        00:00:00 [scsi_eh_25]
-root       168     2  0 May15 ?        00:00:00 [scsi_tmf_25]
-root       169     2  0 May15 ?        00:00:00 [scsi_eh_26]
-root       170     2  0 May15 ?        00:00:00 [scsi_tmf_26]
-root       171     2  0 May15 ?        00:00:00 [scsi_eh_27]
-root       172     2  0 May15 ?        00:00:00 [scsi_tmf_27]
-root       173     2  0 May15 ?        00:00:00 [scsi_eh_28]
-root       174     2  0 May15 ?        00:00:00 [scsi_tmf_28]
-root       175     2  0 May15 ?        00:00:00 [scsi_eh_29]
-root       176     2  0 May15 ?        00:00:00 [scsi_tmf_29]
-root       177     2  0 May15 ?        00:00:00 [scsi_eh_30]
-root       178     2  0 May15 ?        00:00:00 [scsi_tmf_30]
-root       179     2  0 May15 ?        00:00:00 [scsi_eh_31]
-root       180     2  0 May15 ?        00:00:00 [scsi_tmf_31]
-root       207     2  0 May15 ?        00:00:00 [scsi_eh_32]
-root       208     2  0 May15 ?        00:00:00 [scsi_tmf_32]
-root       214     2  0 May15 ?        00:00:04 [kworker/0:1H]
-root       223     2  0 May15 ?        00:00:08 [jbd2/sda1-8]
-root       224     2  0 May15 ?        00:00:00 [ext4-rsv-conver]
-root       434     1  0 May15 ?        00:00:00 upstart-file-bridge --daemon
-message+   438     1  0 May15 ?        00:00:09 dbus-daemon --system --fork
-syslog     460     1  0 May15 ?        00:00:02 rsyslogd
-root       469     1  0 May15 ?        00:00:00 /usr/sbin/bluetoothd
-avahi      475     1  0 May15 ?        00:00:24 avahi-daemon: running [ubuntu-2.
-avahi      476   475  0 May15 ?        00:00:00 avahi-daemon: chroot helper
-root       498     2  0 May15 ?        00:00:00 [krfcommd]
-root       510     2  0 May15 ?        00:00:00 [ttm_swap]
-root       647     1  0 May15 ?        00:00:00 upstart-socket-bridge --daemon
-root       687     1  0 May15 ?        00:00:00 /usr/sbin/ModemManager
-root       748     1  0 May15 ?        00:00:49 NetworkManager
-root       818     1  0 May15 ?        00:00:09 /usr/lib/policykit-1/polkitd --n
-nobody     836   748  0 May15 ?        00:00:00 /usr/sbin/dnsmasq --no-resolv --
-root      1060     1  0 May15 ?        00:00:00 /usr/sbin/cups-browsed
-root      2871     1  0 May15 ?        00:04:06 /usr/bin/vmtoolsd
-root      2973     1  0 May15 ?        00:00:00 lightdm
-root      2982  2973  0 May15 tty7     00:04:07 /usr/bin/X -core :0 -seat seat0 
-root      2985     1  0 May15 ?        00:00:01 /usr/lib/accountsservice/account
-root      3006     2  0 May15 ?        00:00:00 [kauditd]
-root      3124     1  0 May15 tty4     00:00:00 /sbin/getty -8 38400 tty4
-root      3130     1  0 May15 tty5     00:00:00 /sbin/getty -8 38400 tty5
-root      3131     1  0 May15 ?        00:00:14 thermald --no-daemon --dbus-enab
-root      3143     1  0 May15 tty2     00:00:00 /sbin/getty -8 38400 tty2
-root      3144     1  0 May15 tty3     00:00:00 /sbin/getty -8 38400 tty3
-root      3147     1  0 May15 tty6     00:00:00 /sbin/getty -8 38400 tty6
-root      3170     1  0 May15 ?        00:00:00 acpid -c /etc/acpi/events -s /va
-root      3198     1  0 May15 ?        00:00:00 cron
-kernoops  3204     1  0 May15 ?        00:00:03 /usr/sbin/kerneloops
-root      3272     1  0 May15 tty1     00:00:00 /sbin/getty -8 38400 tty1
-whoopsie  3278     1  0 May15 ?        00:00:01 whoopsie
-root      3284  2973  0 May15 ?        00:00:00 lightdm --session-child 12 19
-root      3315     1  0 May15 ?        00:00:00 /usr/lib/upower/upowerd
-rtkit     3349     1  0 May15 ?        00:00:03 /usr/lib/rtkit/rtkit-daemon
-colord    3560     1  0 May15 ?        00:00:00 /usr/lib/colord/colord
-naval     3848     1  0 May15 ?        00:00:01 /usr/bin/gnome-keyring-daemon --
-naval     3851  3284  0 May15 ?        00:00:00 init --user
-naval     3939  3851  0 May15 ?        00:00:06 dbus-daemon --fork --session --a
-naval     3951  3851  0 May15 ?        00:00:00 upstart-event-bridge
-naval     3964  3851  0 May15 ?        00:00:00 /usr/lib/i386-linux-gnu/hud/wind
-naval     3973  3851  0 May15 ?        00:00:01 upstart-dbus-bridge --daemon --s
-naval     3974  3851  0 May15 ?        00:00:00 upstart-dbus-bridge --daemon --s
-naval     3975  3851  0 May15 ?        00:00:00 upstart-file-bridge --daemon --u
-naval     3990  3851  0 May15 ?        00:00:06 /usr/bin/ibus-daemon --daemonize
-naval     4003  3851  0 May15 ?        00:00:00 /usr/lib/dconf/dconf-service
-naval     4029  3851  0 May15 ?        00:00:03 /usr/lib/i386-linux-gnu/bamf/bam
-naval     4031  3851  0 May15 ?        00:00:00 /usr/lib/i386-linux-gnu/gconf/gc
-naval     4045  3851  0 May15 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-bus
-naval     4049  4045  0 May15 ?        00:00:00 /bin/dbus-daemon --config-file=/
-naval     4052  3851  0 May15 ?        00:00:00 /usr/lib/at-spi2-core/at-spi2-re
-naval     4058  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfsd
-naval     4063  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfsd-fuse /run/us
-naval     4074  3990  0 May15 ?        00:00:00 /usr/lib/ibus/ibus-dconf
-naval     4075  3990  0 May15 ?        00:00:03 /usr/lib/ibus/ibus-ui-gtk3
-naval     4079  3851  0 May15 ?        00:00:00 /usr/lib/ibus/ibus-x11 --kill-da
-naval     4095  3990  0 May15 ?        00:00:01 /usr/lib/ibus/ibus-engine-simple
-naval     4122  3851  0 May15 ?        00:00:09 /usr/lib/unity-settings-daemon/u
-naval     4126  3851  0 May15 ?        00:00:06 /usr/lib/i386-linux-gnu/hud/hud-
-naval     4133  3851  0 May15 ?        00:00:01 gnome-session --session=ubuntu
-naval     4138  3851  0 May15 ?        00:00:15 /usr/lib/unity/unity-panel-servi
-naval     4205  3851  0 May15 ?        00:00:01 /usr/lib/i386-linux-gnu/indicato
-naval     4207  3851  0 May15 ?        00:00:00 /usr/lib/i386-linux-gnu/indicato
-naval     4210  3851  0 May15 ?        00:00:00 /usr/lib/i386-linux-gnu/indicato
-naval     4212  3851  0 May15 ?        00:00:00 /usr/lib/i386-linux-gnu/indicato
-naval     4216  3851  0 May15 ?        00:00:08 /usr/lib/i386-linux-gnu/indicato
-naval     4217  3851  0 May15 ?        00:00:00 /usr/lib/i386-linux-gnu/indicato
-naval     4220  3851  0 May15 ?        00:00:02 /usr/lib/i386-linux-gnu/indicato
-naval     4232  3851  0 May15 ?        00:00:01 /usr/bin/pulseaudio --start --lo
-naval     4240  3851  0 May15 ?        00:00:22 /usr/lib/i386-linux-gnu/notify-o
-naval     4244  3851  0 May15 ?        00:00:01 /usr/lib/i386-linux-gnu/indicato
-naval     4245  3851  0 May15 ?        00:00:01 /usr/lib/i386-linux-gnu/indicato
-naval     4280  3851  0 May15 ?        00:00:00 /usr/lib/evolution/evolution-sou
-naval     4304  4133  0 May15 ?        00:15:32 compiz
-naval     4315  3851  0 May15 ?        00:00:05 /usr/lib/evolution/evolution-cal
-naval     4316  4133  0 May15 ?        00:00:29 nautilus -n
-naval     4320  4133  0 May15 ?        00:00:06 nm-applet
-naval     4322  3851  0 May15 ?        00:03:37 /usr/bin/vmtoolsd -n vmusr
-naval     4323  4133  0 May15 ?        00:00:01 /usr/lib/unity-settings-daemon/u
-naval     4328  4133  0 May15 ?        00:00:01 /usr/lib/policykit-1-gnome/polki
-naval     4339  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfs-udisks2-volum
-root      4353     1  0 May15 ?        00:00:00 /usr/lib/udisks2/udisksd --no-de
-naval     4365  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfs-mtp-volume-mo
-naval     4369  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfs-gphoto2-volum
-naval     4375  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfs-afc-volume-mo
-naval     4381  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfsd-burn --spawn
-naval     4387  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfsd-trash --spaw
-naval     4403  3851  0 May15 ?        00:00:00 /usr/lib/gvfs/gvfsd-metadata
-naval     4430  4133  0 May15 ?        00:00:01 telepathy-indicator
-naval     4437  3851  0 May15 ?        00:00:03 /usr/lib/telepathy/mission-contr
-naval     4450  4133  0 May15 ?        00:00:04 zeitgeist-datahub
-naval     4455  3851  0 May15 ?        00:00:03 /usr/bin/zeitgeist-daemon
-naval     4462  3851  0 May15 ?        00:00:06 /usr/lib/i386-linux-gnu/zeitgeis
-naval     4472  4462  0 May15 ?        00:00:00 /bin/cat
-naval     4488  4133  0 May15 ?        00:00:04 update-notifier
-naval     4536  4133  0 May15 ?        00:00:09 /usr/lib/i386-linux-gnu/deja-dup
-naval     5138  3851  3 May16 ?        00:56:20 /usr/lib/firefox/firefox
-naval     5236  3851  0 May16 ?        00:00:05 /usr/lib/i386-linux-gnu/unity-sc
-naval     5251  3851  0 May16 ?        00:00:08 /usr/bin/unity-scope-loader appl
-naval     5255  3851  0 May16 ?        00:00:00 /usr/lib/i386-linux-gnu/unity-le
-naval     5257  3851  0 May16 ?        00:00:02 /usr/lib/i386-linux-gnu/unity-le
-naval     5313  3851  0 May16 ?        00:00:02 /usr/lib/gvfs/gvfsd-http --spawn
-naval     5384  3851  0 May16 ?        00:00:32 gnome-terminal
-naval     5391  5384  0 May16 ?        00:00:00 gnome-pty-helper
-naval     5392  5384  0 May16 pts/0    00:00:02 bash
-naval     5551  5384  0 May16 pts/9    00:00:00 bash
-root     11169     1  0 May16 ?        00:00:00 /usr/sbin/cupsd -f
-lp       11172 11169  0 May16 ?        00:00:00 /usr/lib/cups/notifier/dbus dbus
-root     12068     1  0 May16 ?        00:00:00 /usr/sbin/sshd -D
-root     16641     1  0 May16 ?        00:00:00 upstart-udev-bridge --daemon
-root     16644     1  0 May16 ?        00:00:00 /lib/systemd/systemd-udevd --dae
-root     16717     1  0 May16 ?        00:00:00 /lib/systemd/systemd-logind
-root     18603     2  0 10:00 ?        00:00:00 [kworker/u16:1]
-root     18925   748  0 10:03 ?        00:00:00 /sbin/dhclient -d -sf /usr/lib/N
-root     19193     2  0 10:17 ?        00:00:00 [kworker/u16:0]
-root     19199     2  0 10:17 ?        00:00:00 [kworker/0:2]
-root     19325     2  0 10:32 ?        00:00:00 [kworker/0:0]
-root     19432     2  0 10:34 ?        00:00:00 [kworker/u16:2]
-root     19562     2  0 10:46 ?        00:00:00 [kworker/0:1]
-root     19669 12068  0 10:47 ?        00:00:00 sshd: naval [priv]  
-naval    19706 19669  0 10:47 ?        00:00:00 sshd: naval@pts/23  
-naval    19707 19706  0 10:47 pts/23   00:00:00 -bash
-naval    19721 19707  0 10:47 pts/23   00:00:00 ps -ef
-naval@ubuntu:~$ 
-naval@ubuntu:~$  
-naval@ubuntu:~$  exit
-logout
+09:02:34,0
+09:02:34,0:0H
+09:02:34,rcu_sched
+09:02:34,rcu_bh
+09:02:34,0
+09:02:34,0
+09:02:34,khelper
+09:02:34,kdevtmpfs
+09:02:34,netns
+09:02:34,perf
+09:02:34,khungtaskd
+09:02:34,writeback
+09:02:34,ksmd
+09:02:34,khugepaged
+09:02:34,crypto
+09:02:34,kintegrityd
+09:02:34,bioset
+09:02:34,kblockd
+09:02:34,ata_sff
+09:02:34,md
+09:02:34,devfreq_wq
+09:02:34,kswapd0
+09:02:34,fsnotify_mark
+09:02:34,ecryptfs-kthrea
+09:02:34,kthrotld
+09:02:34,acpi_thermal_pm
+09:02:34,scsi_eh_0
+09:02:34,scsi_tmf_0
+09:02:34,scsi_eh_1
+09:02:34,scsi_tmf_1
+09:02:34,ipv6_addrconf
+09:02:34,deferwq
+09:02:34,charger_manager
+09:02:34,mpt_poll_0
+09:02:34,0
+09:02:34,kpsmoused
+09:02:34,scsi_eh_2
+09:02:34,scsi_tmf_2
+09:02:34,scsi_eh_3
+09:02:34,scsi_tmf_3
+09:02:34,scsi_eh_4
+09:02:34,scsi_tmf_4
+09:02:34,scsi_eh_5
+09:02:34,scsi_tmf_5
+09:02:34,scsi_eh_6
+09:02:34,scsi_tmf_6
+09:02:34,scsi_eh_7
+09:02:34,scsi_tmf_7
+09:02:34,scsi_eh_8
+09:02:34,scsi_tmf_8
+09:02:34,scsi_eh_9
+09:02:34,scsi_tmf_9
+09:02:34,scsi_eh_10
+09:02:34,scsi_tmf_10
+09:02:34,scsi_eh_11
+09:02:34,scsi_tmf_11
+09:02:34,scsi_eh_12
+09:02:34,scsi_tmf_12
+09:02:34,scsi_eh_13
+09:02:34,scsi_tmf_13
+09:02:34,scsi_eh_14
+09:02:34,scsi_tmf_14
+09:02:34,scsi_eh_15
+09:02:34,scsi_tmf_15
+09:02:34,scsi_eh_16
+09:02:34,scsi_tmf_16
+09:02:34,scsi_eh_17
+09:02:34,scsi_tmf_17
+09:02:34,scsi_eh_18
+09:02:34,scsi_tmf_18
+09:02:34,scsi_eh_19
+09:02:34,scsi_tmf_19
+09:02:34,scsi_eh_20
+09:02:34,scsi_tmf_20
+09:02:34,scsi_eh_21
+09:02:34,scsi_tmf_21
+09:02:34,scsi_eh_22
+09:02:34,scsi_tmf_22
+09:02:34,scsi_eh_23
+09:02:34,scsi_tmf_23
+09:02:34,scsi_eh_24
+09:02:34,scsi_tmf_24
+09:02:34,scsi_eh_25
+09:02:34,scsi_tmf_25
+09:02:34,scsi_eh_26
+09:02:34,scsi_tmf_26
+09:02:34,scsi_eh_27
+09:02:34,scsi_tmf_27
+09:02:34,scsi_eh_28
+09:02:34,scsi_tmf_28
+09:02:34,scsi_eh_29
+09:02:34,scsi_tmf_29
+09:02:34,scsi_eh_30
+09:02:34,scsi_tmf_30
+09:02:34,scsi_eh_31
+09:02:34,scsi_tmf_31
+09:02:34,scsi_eh_32
+09:02:34,scsi_tmf_32
+09:02:34,0:1H
+09:02:34,sda1-8
+09:02:34,ext4-rsv-conver
+09:02:34,upstart-udev-br
+09:02:34,systemd-udevd
+09:02:34,ttm_swap
+09:02:34,hci0
+09:02:34,hci0
+09:02:34,u17:1
+09:02:34,upstart-socket-
+09:02:34,upstart-file-br
+09:02:34,rsyslogd
+09:02:34,dbus-daemon
+09:02:34,ModemManager
+09:02:34,getty
+09:02:34,getty
+09:02:34,thermald
+09:02:34,getty
+09:02:34,getty
+09:02:34,getty
+09:02:34,systemd-logind
+09:02:34,sshd
+09:02:34,acpid
+09:02:34,bluetoothd
+09:02:34,cron
+09:02:34,avahi-daemon
+09:02:34,avahi-daemon
+09:02:34,krfcommd
+09:02:34,cups-browsed
+09:02:34,u17:2
+09:02:34,kerneloops
+09:02:34,NetworkManager
+09:02:34,polkitd
+09:02:34,vmtoolsd
+09:02:34,getty
+09:02:34,whoopsie
+09:02:34,dnsmasq
+09:02:34,lightdm
+09:02:34,Xorg
+09:02:34,accounts-daemon
+09:02:34,kauditd
+09:02:34,lightdm
+09:02:34,upowerd
+09:02:34,rtkit-daemon
+09:02:34,gnome-keyring-d
+09:02:34,init
+09:02:34,dbus-daemon
+09:02:34,upstart-event-b
+09:02:34,window-stack-br
+09:02:34,ibus-daemon
+09:02:34,upstart-dbus-br
+09:02:34,upstart-dbus-br
+09:02:34,upstart-file-br
+09:02:34,unity-settings-
+09:02:34,hud-service
+09:02:34,gnome-session
+09:02:34,at-spi-bus-laun
+09:02:34,unity-panel-ser
+09:02:34,dbus-daemon
+09:02:34,at-spi2-registr
+09:02:34,gvfsd
+09:02:34,gvfsd-fuse
+09:02:34,ibus-dconf
+09:02:34,bamfdaemon
+09:02:34,ibus-ui-gtk3
+09:02:34,ibus-x11
+09:02:34,ibus-engine-sim
+09:02:34,indicator-keybo
+09:02:34,indicator-messa
+09:02:34,indicator-bluet
+09:02:34,indicator-power
+09:02:34,indicator-datet
+09:02:34,indicator-sound
+09:02:34,indicator-print
+09:02:34,indicator-sessi
+09:02:34,indicator-appli
+09:02:34,pulseaudio
+09:02:34,evolution-sourc
+09:02:34,colord
+09:02:34,notify-osd
+09:02:34,dconf-service
+09:02:34,compiz
+09:02:34,evolution-calen
+09:02:34,nautilus
+09:02:34,nm-applet
+09:02:34,vmtoolsd
+09:02:34,unity-fallback-
+09:02:34,polkit-gnome-au
+09:02:34,gvfs-udisks2-vo
+09:02:34,udisksd
+09:02:34,gconfd-2
+09:02:34,gvfs-mtp-volume
+09:02:34,gvfs-gphoto2-vo
+09:02:34,gvfs-afc-volume
+09:02:34,gvfsd-burn
+09:02:34,gvfsd-trash
+09:02:34,telepathy-indic
+09:02:34,mission-control
+09:02:34,zeitgeist-datah
+09:02:34,zeitgeist-daemo
+09:02:34,zeitgeist-fts
+09:02:34,cat
+09:02:34,unity-scope-hom
+09:02:34,unity-scope-loa
+09:02:34,unity-files-dae
+09:02:34,unity-music-dae
+09:02:34,gvfsd-http
+09:02:34,update-notifier
+09:02:34,geoclue-master
+09:02:34,ubuntu-geoip-pr
+09:02:34,gnome-terminal
+09:02:34,gnome-pty-helpe
+09:02:34,bash
+09:02:34,deja-dup-monito
+09:02:34,dhclient
+09:02:34,unity-panel-ser
+09:02:34,cupsd
+09:02:34,dbus
+09:02:34,dbus
+09:02:34,dbus
+09:02:34,u16:1
+09:02:34,0:1
+09:02:34,u16:0
+09:02:34,0:0
+09:02:34,0:2
+09:02:34,sshd
+09:02:34,sshd
+09:02:34,bash
+09:02:34,ps
+09:02:34,sed
+09:02:34,naval@ubuntu:~$ 
+09:02:34,naval@ubuntu:~$  exit
+09:02:34,logout

@@ -1,251 +1,229 @@
-Welcome to Ubuntu 15.10 (GNU/Linux 4.2.0-36-generic x86_64)
-
- * Documentation:  https://help.ubuntu.com/
-
-11 packages can be updated.
-6 updates are security updates.
-
-New release '16.04 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-Last login: Tue May 17 10:46:57 2016 from 192.168.188.1
-
-ps -ef
-
- 
- exit
-
-navalk@ubuntu:~$ ps -ef
-UID         PID   PPID  C STIME TTY          TIME CMD
-root          1      0  0 10:38 ?        00:00:02 /sbin/init auto noprompt
-root          2      0  0 10:38 ?        00:00:00 [kthreadd]
-root          3      2  0 10:38 ?        00:00:00 [ksoftirqd/0]
-root          4      2  0 10:38 ?        00:00:00 [kworker/0:0]
-root          5      2  0 10:38 ?        00:00:00 [kworker/0:0H]
-root          7      2  0 10:38 ?        00:00:00 [rcu_sched]
-root          8      2  0 10:38 ?        00:00:00 [rcu_bh]
-root          9      2  0 10:38 ?        00:00:00 [rcuos/0]
-root         10      2  0 10:38 ?        00:00:00 [rcuob/0]
-root         11      2  0 10:38 ?        00:00:00 [migration/0]
-root         12      2  0 10:38 ?        00:00:00 [watchdog/0]
-root         13      2  0 10:38 ?        00:00:00 [khelper]
-root         14      2  0 10:38 ?        00:00:00 [kdevtmpfs]
-root         15      2  0 10:38 ?        00:00:00 [netns]
-root         16      2  0 10:38 ?        00:00:00 [perf]
-root         17      2  0 10:38 ?        00:00:00 [khungtaskd]
-root         18      2  0 10:38 ?        00:00:00 [writeback]
-root         19      2  0 10:38 ?        00:00:00 [ksmd]
-root         20      2  0 10:38 ?        00:00:00 [khugepaged]
-root         21      2  0 10:38 ?        00:00:00 [crypto]
-root         22      2  0 10:38 ?        00:00:00 [kintegrityd]
-root         23      2  0 10:38 ?        00:00:00 [bioset]
-root         24      2  0 10:38 ?        00:00:00 [kblockd]
-root         25      2  0 10:38 ?        00:00:00 [ata_sff]
-root         26      2  0 10:38 ?        00:00:00 [md]
-root         27      2  0 10:38 ?        00:00:00 [devfreq_wq]
-root         31      2  0 10:38 ?        00:00:00 [kswapd0]
-root         32      2  0 10:38 ?        00:00:00 [vmstat]
-root         33      2  0 10:38 ?        00:00:00 [fsnotify_mark]
-root         34      2  0 10:38 ?        00:00:00 [ecryptfs-kthrea]
-root         45      2  0 10:38 ?        00:00:00 [kthrotld]
-root         46      2  0 10:38 ?        00:00:00 [acpi_thermal_pm]
-root         47      2  0 10:38 ?        00:00:00 [scsi_eh_0]
-root         48      2  0 10:38 ?        00:00:00 [scsi_tmf_0]
-root         49      2  0 10:38 ?        00:00:00 [scsi_eh_1]
-root         50      2  0 10:38 ?        00:00:00 [scsi_tmf_1]
-root         55      2  0 10:38 ?        00:00:00 [ipv6_addrconf]
-root         56      2  0 10:38 ?        00:00:00 [kworker/0:2]
-root         76      2  0 10:38 ?        00:00:00 [deferwq]
-root         77      2  0 10:38 ?        00:00:00 [charger_manager]
-root        127      2  0 10:38 ?        00:00:00 [mpt_poll_0]
-root        128      2  0 10:38 ?        00:00:00 [mpt/0]
-root        129      2  0 10:38 ?        00:00:00 [kpsmoused]
-root        130      2  0 10:38 ?        00:00:00 [scsi_eh_2]
-root        131      2  0 10:38 ?        00:00:00 [scsi_tmf_2]
-root        132      2  0 10:38 ?        00:00:00 [scsi_eh_3]
-root        133      2  0 10:38 ?        00:00:00 [scsi_tmf_3]
-root        134      2  0 10:38 ?        00:00:00 [scsi_eh_4]
-root        135      2  0 10:38 ?        00:00:00 [scsi_tmf_4]
-root        136      2  0 10:38 ?        00:00:00 [scsi_eh_5]
-root        137      2  0 10:38 ?        00:00:00 [scsi_tmf_5]
-root        138      2  0 10:38 ?        00:00:00 [scsi_eh_6]
-root        139      2  0 10:38 ?        00:00:00 [scsi_tmf_6]
-root        140      2  0 10:38 ?        00:00:00 [scsi_eh_7]
-root        141      2  0 10:38 ?        00:00:00 [scsi_tmf_7]
-root        142      2  0 10:38 ?        00:00:00 [scsi_eh_8]
-root        143      2  0 10:38 ?        00:00:00 [scsi_tmf_8]
-root        144      2  0 10:38 ?        00:00:00 [scsi_eh_9]
-root        145      2  0 10:38 ?        00:00:00 [scsi_tmf_9]
-root        146      2  0 10:38 ?        00:00:00 [scsi_eh_10]
-root        147      2  0 10:38 ?        00:00:00 [scsi_tmf_10]
-root        148      2  0 10:38 ?        00:00:00 [scsi_eh_11]
-root        149      2  0 10:38 ?        00:00:00 [scsi_tmf_11]
-root        150      2  0 10:38 ?        00:00:00 [scsi_eh_12]
-root        151      2  0 10:38 ?        00:00:00 [scsi_tmf_12]
-root        152      2  0 10:38 ?        00:00:00 [scsi_eh_13]
-root        153      2  0 10:38 ?        00:00:00 [scsi_tmf_13]
-root        154      2  0 10:38 ?        00:00:00 [scsi_eh_14]
-root        155      2  0 10:38 ?        00:00:00 [scsi_tmf_14]
-root        156      2  0 10:38 ?        00:00:00 [scsi_eh_15]
-root        157      2  0 10:38 ?        00:00:00 [scsi_tmf_15]
-root        158      2  0 10:38 ?        00:00:00 [scsi_eh_16]
-root        159      2  0 10:38 ?        00:00:00 [scsi_tmf_16]
-root        160      2  0 10:38 ?        00:00:00 [scsi_eh_17]
-root        161      2  0 10:38 ?        00:00:00 [scsi_tmf_17]
-root        162      2  0 10:38 ?        00:00:00 [scsi_eh_18]
-root        163      2  0 10:38 ?        00:00:00 [scsi_tmf_18]
-root        164      2  0 10:38 ?        00:00:00 [scsi_eh_19]
-root        165      2  0 10:38 ?        00:00:00 [scsi_tmf_19]
-root        166      2  0 10:38 ?        00:00:00 [scsi_eh_20]
-root        167      2  0 10:38 ?        00:00:00 [scsi_tmf_20]
-root        168      2  0 10:38 ?        00:00:00 [scsi_eh_21]
-root        169      2  0 10:38 ?        00:00:00 [scsi_tmf_21]
-root        170      2  0 10:38 ?        00:00:00 [scsi_eh_22]
-root        171      2  0 10:38 ?        00:00:00 [scsi_tmf_22]
-root        172      2  0 10:38 ?        00:00:00 [scsi_eh_23]
-root        173      2  0 10:38 ?        00:00:00 [scsi_tmf_23]
-root        174      2  0 10:38 ?        00:00:00 [scsi_eh_24]
-root        175      2  0 10:38 ?        00:00:00 [scsi_tmf_24]
-root        176      2  0 10:38 ?        00:00:00 [scsi_eh_25]
-root        177      2  0 10:38 ?        00:00:00 [scsi_tmf_25]
-root        178      2  0 10:38 ?        00:00:00 [scsi_eh_26]
-root        179      2  0 10:38 ?        00:00:00 [scsi_tmf_26]
-root        180      2  0 10:38 ?        00:00:00 [scsi_eh_27]
-root        181      2  0 10:38 ?        00:00:00 [scsi_tmf_27]
-root        182      2  0 10:38 ?        00:00:00 [scsi_eh_28]
-root        183      2  0 10:38 ?        00:00:00 [scsi_tmf_28]
-root        184      2  0 10:38 ?        00:00:00 [scsi_eh_29]
-root        185      2  0 10:38 ?        00:00:00 [scsi_tmf_29]
-root        186      2  0 10:38 ?        00:00:00 [scsi_eh_30]
-root        187      2  0 10:38 ?        00:00:00 [scsi_tmf_30]
-root        188      2  0 10:38 ?        00:00:00 [scsi_eh_31]
-root        189      2  0 10:38 ?        00:00:00 [scsi_tmf_31]
-root        213      2  0 10:38 ?        00:00:00 [kworker/u256:28]
-root        214      2  0 10:38 ?        00:00:00 [kworker/u256:29]
-root        217      2  0 10:38 ?        00:00:00 [scsi_eh_32]
-root        218      2  0 10:38 ?        00:00:00 [scsi_tmf_32]
-root        220      2  0 10:38 ?        00:00:00 [ttm_swap]
-root        224      2  0 10:38 ?        00:00:00 [kworker/0:1H]
-root        249      2  0 10:38 ?        00:00:00 [jbd2/sda1-8]
-root        250      2  0 10:38 ?        00:00:00 [ext4-rsv-conver]
-root        289      2  0 10:38 ?        00:00:00 [kauditd]
-root        309      1  0 10:38 ?        00:00:00 /lib/systemd/systemd-journald
-root        317      1  0 10:38 ?        00:00:00 vmware-vmblock-fuse /run/vmblo
-root        321      1  0 10:38 ?        00:00:04 /lib/systemd/systemd-udevd
-systemd+    376      1  0 10:38 ?        00:00:00 /lib/systemd/systemd-timesyncd
-root        477      2  0 10:38 ?        00:00:00 [kworker/u257:0]
-root        478      2  0 10:38 ?        00:00:00 [hci0]
-root        479      2  0 10:38 ?        00:00:00 [hci0]
-root        482      2  0 10:38 ?        00:00:00 [kworker/u257:2]
-whoopsie    601      1  0 10:38 ?        00:00:00 /usr/bin/whoopsie -f
-syslog      607      1  0 10:38 ?        00:00:00 /usr/sbin/rsyslogd -n
-root        608      1  0 10:38 ?        00:00:00 /usr/bin/vmtoolsd
-root        610      1  0 10:38 ?        00:00:00 /usr/lib/accountsservice/accou
-root        612      1  0 10:38 ?        00:00:00 /usr/sbin/ModemManager
-root        615      1  0 10:39 ?        00:00:00 /usr/sbin/cron -f
-root        616      1  0 10:39 ?        00:00:00 /lib/systemd/systemd-logind
-root        617      1  0 10:39 ?        00:00:00 /usr/sbin/NetworkManager --no-
-root        618      1  0 10:39 ?        00:00:00 /sbin/cgmanager -m name=system
-root        620      1  0 10:39 ?        00:00:00 /usr/sbin/cupsd -l
-root        621      1  0 10:39 ?        00:00:00 /usr/sbin/thermald --no-daemon
-message+    625      1  0 10:39 ?        00:00:00 /usr/bin/dbus-daemon --system 
-root        689      1  0 10:39 ?        00:00:00 /usr/lib/bluetooth/bluetoothd
-avahi       690      1  0 10:39 ?        00:00:00 avahi-daemon: running [ubuntu.
-root        695      1  0 10:39 tty1     00:00:00 /sbin/agetty --noclear tty1 li
-root        698      1  0 10:39 ?        00:00:00 /usr/sbin/sshd -D
-avahi       701    690  0 10:39 ?        00:00:00 avahi-daemon: chroot helper
-root        702      1  0 10:39 ?        00:00:00 /usr/sbin/cups-browsed
-root        703      1  0 10:39 ?        00:00:00 /usr/lib/policykit-1/polkitd -
-root        718      1  0 10:39 ?        00:00:00 /sbin/wpa_supplicant -u -s -O 
-root        719    617  0 10:39 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/
-nobody      729    617  0 10:39 ?        00:00:00 /usr/sbin/dnsmasq --no-resolv 
-kernoops    848      1  0 10:39 ?        00:00:00 /usr/sbin/kerneloops
-root       1015      1  0 10:39 ?        00:00:00 /usr/sbin/lightdm
-root       1021   1015  0 10:39 tty7     00:00:01 /usr/bin/X -core :0 -seat seat
-root       1087   1015  0 10:39 ?        00:00:00 lightdm --session-child 12 19
-rtkit      1168      1  0 10:39 ?        00:00:00 /usr/lib/rtkit/rtkit-daemon
-root       1171      1  0 10:39 ?        00:00:00 /usr/lib/upower/upowerd
-colord     1191      1  0 10:39 ?        00:00:00 /usr/lib/colord/colord
-root       1201      2  0 10:39 ?        00:00:00 [krfcommd]
-navalk     1219      1  0 10:39 ?        00:00:00 /lib/systemd/systemd --user
-navalk     1220   1219  0 10:39 ?        00:00:00 (sd-pam)                
-navalk     1259      1  0 10:39 ?        00:00:00 /usr/bin/gnome-keyring-daemon 
-navalk     1262   1087  0 10:39 ?        00:00:00 /sbin/upstart --user
-navalk     1349   1262  0 10:39 ?        00:00:00 upstart-udev-bridge --daemon -
-navalk     1355   1262  0 10:39 ?        00:00:00 dbus-daemon --fork --session -
-navalk     1367   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/hud/
-navalk     1412   1262  0 10:39 ?        00:00:00 upstart-dbus-bridge --daemon -
-navalk     1413   1262  0 10:39 ?        00:00:00 upstart-dbus-bridge --daemon -
-navalk     1415   1262  0 10:39 ?        00:00:00 /usr/bin/ibus-daemon --daemoni
-navalk     1421   1262  0 10:39 ?        00:00:00 upstart-file-bridge --daemon -
-navalk     1429   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/hud/
-navalk     1431   1262  0 10:39 ?        00:00:00 /usr/lib/unity-settings-daemon
-navalk     1436   1262  0 10:39 ?        00:00:00 /usr/lib/at-spi2-core/at-spi-b
-navalk     1437   1262  0 10:39 ?        00:00:00 gnome-session --session=ubuntu
-navalk     1443   1262  0 10:39 ?        00:00:00 /usr/lib/unity/unity-panel-ser
-navalk     1444   1436  0 10:39 ?        00:00:00 /usr/bin/dbus-daemon --config-
-navalk     1446   1262  0 10:39 ?        00:00:00 /usr/lib/at-spi2-core/at-spi2-
-navalk     1449   1262  0 10:39 ?        00:00:03 compiz
-navalk     1459   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfsd
-navalk     1465   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfsd-fuse /run/
-navalk     1487   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/bamf
-navalk     1496   1415  0 10:39 ?        00:00:00 /usr/lib/ibus/ibus-dconf
-navalk     1497   1415  0 10:39 ?        00:00:00 /usr/lib/ibus/ibus-ui-gtk3
-navalk     1499   1262  0 10:39 ?        00:00:00 /usr/lib/dconf/dconf-service
-navalk     1505   1262  0 10:39 ?        00:00:00 /usr/lib/ibus/ibus-x11 --kill-
-navalk     1513   1262  0 10:39 ?        00:00:00 /usr/bin/pulseaudio --start --
-navalk     1515   1415  0 10:39 ?        00:00:00 /usr/lib/ibus/ibus-engine-simp
-navalk     1544   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1547   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1550   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1551   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1555   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1561   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1567   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1569   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1578   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/indi
-navalk     1580   1437  0 10:39 ?        00:00:01 nautilus -n
-navalk     1599   1262  0 10:39 ?        00:00:00 /usr/lib/evolution/evolution-s
-navalk     1605   1437  0 10:39 ?        00:00:00 /usr/lib/policykit-1-gnome/pol
-navalk     1610   1437  0 10:39 ?        00:00:00 nm-applet
-navalk     1611   1262  0 10:39 ?        00:00:00 /usr/bin/vmtoolsd -n vmusr --b
-navalk     1615   1437  0 10:39 ?        00:00:00 /usr/lib/unity-settings-daemon
-navalk     1654   1262  0 10:39 ?        00:00:00 /usr/lib/x86_64-linux-gnu/gcon
-navalk     1662   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfs-udisks2-vol
-root       1665      1  0 10:39 ?        00:00:00 /usr/lib/udisks2/udisksd --no-
-navalk     1676   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfs-afc-volume-
-navalk     1682   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfs-gphoto2-vol
-navalk     1687   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfs-mtp-volume-
-navalk     1710   1262  0 10:39 ?        00:00:00 /usr/lib/evolution/evolution-c
-navalk     1713   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfsd-burn --spa
-navalk     1722   1262  0 10:39 ?        00:00:00 /usr/lib/gvfs/gvfsd-trash --sp
-navalk     1729   1262  0 10:40 ?        00:00:00 /usr/lib/gvfs/gvfsd-metadata
-navalk     1739   1710  0 10:40 ?        00:00:00 /usr/lib/evolution/evolution-c
-navalk     1748   1710  0 10:40 ?        00:00:00 /usr/lib/evolution/evolution-c
-navalk     1753   1262  0 10:40 ?        00:00:00 /usr/lib/evolution/evolution-a
-navalk     1772   1753  0 10:40 ?        00:00:00 /usr/lib/evolution/evolution-a
-navalk     1803   1437  0 10:40 ?        00:00:00 telepathy-indicator
-navalk     1812   1262  0 10:40 ?        00:00:00 /usr/lib/telepathy/mission-con
-navalk     1825   1437  0 10:40 ?        00:00:00 zeitgeist-datahub
-navalk     1832   1262  0 10:40 ?        00:00:00 /usr/bin/zeitgeist-daemon
-navalk     1845   1262  0 10:40 ?        00:00:00 /usr/lib/x86_64-linux-gnu/zeit
-navalk     1894   1437  0 10:40 ?        00:00:00 update-notifier
-navalk     1924   1437  0 10:41 ?        00:00:00 /usr/lib/x86_64-linux-gnu/deja
-navalk     1941   1262  0 10:45 ?        00:00:00 /usr/lib/x86_64-linux-gnu/unit
-navalk     1955   1262  0 10:45 ?        00:00:00 /usr/bin/unity-scope-loader ap
-navalk     1956   1262  0 10:45 ?        00:00:00 /usr/lib/x86_64-linux-gnu/unit
-uuidd      1985      1  0 10:45 ?        00:00:00 /usr/sbin/uuidd --socket-activ
-navalk     1989   1262  0 10:45 ?        00:00:00 /usr/lib/x86_64-linux-gnu/unit
-navalk     2017   1262  0 10:45 ?        00:00:00 /usr/lib/gnome-terminal/gnome-
-navalk     2031   1262  0 10:45 ?        00:00:00 /usr/lib/gvfs/gvfsd-http --spa
-navalk     2035   2017  0 10:45 ?        00:00:00 gnome-pty-helper
-navalk     2039   2017  0 10:45 pts/1    00:00:00 bash
-root       2210      2  0 10:46 ?        00:00:00 [kworker/0:1]
-root       2321    698  0 10:47 ?        00:00:00 sshd: navalk [priv] 
-navalk     2358   2321  0 10:47 ?        00:00:00 sshd: navalk@pts/2  
-navalk     2359   2358  0 10:47 pts/2    00:00:00 -bash
-navalk     2371   2359  0 10:47 pts/2    00:00:00 ps -ef
-navalk@ubuntu:~$ 
-navalk@ubuntu:~$  
-navalk@ubuntu:~$  exit
-logout
+01:26:32,navalk@ubuntu:~$ ps -aux | sed 's/\s\+/,/g'
+01:26:32,USER,PID,%CPU,%MEM,VSZ,RSS,TTY,STAT,START,TIME,COMMAND
+01:26:32,root,1,0.0,0.2,119800,5868,?,Ss,07:39,0:19,/sbin/init,auto,noprompt
+01:26:32,root,2,0.0,0.0,0,0,?,S,07:39,0:00,[kthreadd]
+01:26:32,root,3,0.0,0.0,0,0,?,S,07:39,0:00,[ksoftirqd/0]
+01:26:32,root,5,0.0,0.0,0,0,?,S<,07:39,0:00,[kworker/0:0H]
+01:26:32,root,7,0.0,0.0,0,0,?,S,07:39,0:10,[rcu_sched]
+01:26:32,root,8,0.0,0.0,0,0,?,S,07:39,0:00,[rcu_bh]
+01:26:32,root,9,0.0,0.0,0,0,?,S,07:39,0:10,[rcuos/0]
+01:26:32,root,10,0.0,0.0,0,0,?,S,07:39,0:00,[rcuob/0]
+01:26:32,root,11,0.0,0.0,0,0,?,S,07:39,0:00,[migration/0]
+01:26:32,root,12,0.0,0.0,0,0,?,S,07:39,0:00,[watchdog/0]
+01:26:32,root,13,0.0,0.0,0,0,?,S<,07:39,0:00,[khelper]
+01:26:32,root,14,0.0,0.0,0,0,?,S,07:39,0:00,[kdevtmpfs]
+01:26:32,root,15,0.0,0.0,0,0,?,S<,07:39,0:00,[netns]
+01:26:32,root,16,0.0,0.0,0,0,?,S<,07:39,0:00,[perf]
+01:26:32,root,17,0.0,0.0,0,0,?,S,07:39,0:00,[khungtaskd]
+01:26:32,root,18,0.0,0.0,0,0,?,S<,07:39,0:00,[writeback]
+01:26:32,root,19,0.0,0.0,0,0,?,SN,07:39,0:00,[ksmd]
+01:26:32,root,20,0.2,0.0,0,0,?,SN,07:39,0:52,[khugepaged]
+01:26:32,root,21,0.0,0.0,0,0,?,S<,07:39,0:00,[crypto]
+01:26:32,root,22,0.0,0.0,0,0,?,S<,07:39,0:00,[kintegrityd]
+01:26:32,root,23,0.0,0.0,0,0,?,S<,07:39,0:00,[bioset]
+01:26:32,root,24,0.0,0.0,0,0,?,S<,07:39,0:00,[kblockd]
+01:26:32,root,25,0.0,0.0,0,0,?,S<,07:39,0:00,[ata_sff]
+01:26:32,root,26,0.0,0.0,0,0,?,S<,07:39,0:00,[md]
+01:26:32,root,27,0.0,0.0,0,0,?,S<,07:39,0:00,[devfreq_wq]
+01:26:32,root,31,0.0,0.0,0,0,?,S,07:39,0:00,[kswapd0]
+01:26:32,root,32,0.0,0.0,0,0,?,S<,07:39,0:00,[vmstat]
+01:26:32,root,33,0.0,0.0,0,0,?,S,07:39,0:00,[fsnotify_mark]
+01:26:32,root,34,0.0,0.0,0,0,?,S,07:39,0:00,[ecryptfs-kthrea]
+01:26:32,root,45,0.0,0.0,0,0,?,S<,07:39,0:00,[kthrotld]
+01:26:32,root,46,0.0,0.0,0,0,?,S<,07:39,0:00,[acpi_thermal_pm]
+01:26:32,root,47,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_0]
+01:26:32,root,48,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_0]
+01:26:32,root,49,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_1]
+01:26:32,root,50,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_1]
+01:26:32,root,55,0.0,0.0,0,0,?,S<,07:39,0:00,[ipv6_addrconf]
+01:26:32,root,75,0.0,0.0,0,0,?,S<,07:39,0:00,[deferwq]
+01:26:32,root,76,0.0,0.0,0,0,?,S<,07:39,0:00,[charger_manager]
+01:26:32,root,119,0.0,0.0,0,0,?,S<,07:39,0:00,[mpt_poll_0]
+01:26:32,root,120,0.0,0.0,0,0,?,S<,07:39,0:00,[mpt/0]
+01:26:32,root,121,0.0,0.0,0,0,?,S<,07:39,0:00,[kpsmoused]
+01:26:32,root,122,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_2]
+01:26:32,root,123,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_2]
+01:26:32,root,124,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_3]
+01:26:32,root,125,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_3]
+01:26:32,root,126,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_4]
+01:26:32,root,127,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_4]
+01:26:32,root,128,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_5]
+01:26:32,root,129,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_5]
+01:26:32,root,130,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_6]
+01:26:32,root,131,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_6]
+01:26:32,root,132,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_7]
+01:26:32,root,133,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_7]
+01:26:32,root,134,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_8]
+01:26:32,root,135,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_8]
+01:26:32,root,136,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_9]
+01:26:32,root,137,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_9]
+01:26:32,root,138,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_10]
+01:26:32,root,139,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_10]
+01:26:32,root,140,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_11]
+01:26:32,root,141,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_11]
+01:26:32,root,142,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_12]
+01:26:32,root,143,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_12]
+01:26:32,root,144,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_13]
+01:26:32,root,145,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_13]
+01:26:32,root,146,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_14]
+01:26:32,root,147,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_14]
+01:26:32,root,148,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_15]
+01:26:32,root,149,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_15]
+01:26:32,root,150,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_16]
+01:26:32,root,151,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_16]
+01:26:32,root,152,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_17]
+01:26:32,root,153,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_17]
+01:26:32,root,154,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_18]
+01:26:32,root,155,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_18]
+01:26:32,root,156,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_19]
+01:26:32,root,157,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_19]
+01:26:32,root,158,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_20]
+01:26:32,root,159,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_20]
+01:26:32,root,160,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_21]
+01:26:32,root,161,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_21]
+01:26:32,root,162,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_22]
+01:26:32,root,163,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_22]
+01:26:32,root,164,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_23]
+01:26:32,root,165,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_23]
+01:26:32,root,166,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_24]
+01:26:32,root,167,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_24]
+01:26:32,root,168,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_25]
+01:26:32,root,169,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_25]
+01:26:32,root,170,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_26]
+01:26:32,root,171,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_26]
+01:26:32,root,172,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_27]
+01:26:32,root,173,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_27]
+01:26:32,root,174,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_28]
+01:26:32,root,175,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_28]
+01:26:32,root,176,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_29]
+01:26:32,root,177,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_29]
+01:26:32,root,178,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_30]
+01:26:32,root,179,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_30]
+01:26:32,root,180,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_31]
+01:26:32,root,181,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_31]
+01:26:32,root,209,0.0,0.0,0,0,?,S,07:39,0:00,[scsi_eh_32]
+01:26:32,root,210,0.0,0.0,0,0,?,S<,07:39,0:00,[scsi_tmf_32]
+01:26:32,root,212,0.0,0.0,0,0,?,S<,07:39,0:00,[ttm_swap]
+01:26:32,root,215,0.0,0.0,0,0,?,S<,07:39,0:00,[kworker/0:1H]
+01:26:32,root,240,0.0,0.0,0,0,?,S,07:39,0:01,[jbd2/sda1-8]
+01:26:32,root,241,0.0,0.0,0,0,?,S<,07:39,0:00,[ext4-rsv-conver]
+01:26:32,root,275,0.0,0.0,0,0,?,S,07:40,0:00,[kauditd]
+01:26:32,root,296,0.0,0.2,31364,4548,?,Ss,07:40,0:03,/lib/systemd/systemd-journald
+01:26:32,root,301,0.0,0.0,158628,288,?,Ssl,07:40,0:00,vmware-vmblock-fuse,/run/vmblock-fuse,-o,rw,subtype=vmware-vmblock,default_permissions,allow_other,dev,suid
+01:26:32,root,312,0.0,0.3,46988,6340,?,Ss,07:40,0:03,/lib/systemd/systemd-udevd
+01:26:32,systemd+,376,0.0,0.1,102356,2660,?,Ssl,07:40,0:00,/lib/systemd/systemd-timesyncd
+01:26:32,root,506,0.0,0.0,0,0,?,S<,07:40,0:00,[kworker/u257:0]
+01:26:32,root,507,0.0,0.0,0,0,?,S<,07:40,0:00,[hci0]
+01:26:32,root,508,0.0,0.0,0,0,?,S<,07:40,0:00,[hci0]
+01:26:32,root,511,0.0,0.0,0,0,?,S<,07:40,0:00,[kworker/u257:2]
+01:26:32,avahi,602,0.0,0.1,40184,3356,?,Ss,07:40,0:00,avahi-daemon:,running,[ubuntu.local]
+01:26:32,whoopsie,603,0.0,0.5,447504,12104,?,Ssl,07:40,0:00,/usr/bin/whoopsie,-f
+01:26:32,syslog,604,0.0,0.1,256372,3448,?,Ssl,07:40,0:00,/usr/sbin/rsyslogd,-n
+01:26:32,root,605,0.0,0.4,170476,8696,?,Ssl,07:40,0:03,/usr/sbin/thermald,--no-daemon,--dbus-enable
+01:26:32,root,609,0.0,0.4,337292,8736,?,Ssl,07:40,0:00,/usr/sbin/ModemManager
+01:26:32,root,612,0.1,0.5,191960,10444,?,Ssl,07:40,0:30,/usr/bin/vmtoolsd
+01:26:32,root,613,0.0,0.3,90332,7052,?,Ss,07:40,0:00,/usr/sbin/cupsd,-l
+01:26:32,root,615,0.0,0.1,28676,3132,?,Ss,07:40,0:03,/lib/systemd/systemd-logind
+01:26:32,root,618,0.0,0.2,29708,4308,?,Ss,07:40,0:00,/usr/lib/bluetooth/bluetoothd
+01:26:32,root,621,0.1,0.7,381912,15004,?,Ssl,07:40,0:29,/usr/sbin/NetworkManager,--no-daemon
+01:26:32,root,622,0.3,0.4,289948,9664,?,Ssl,07:40,1:06,/usr/lib/accountsservice/accounts-daemon
+01:26:32,message+,627,0.2,0.2,44288,5048,?,Ss,07:40,0:52,/usr/bin/dbus-daemon,--system,--address=systemd:,--nofork,--nopidfile,--systemd-activation
+01:26:32,avahi,672,0.0,0.0,40068,320,?,S,07:40,0:00,avahi-daemon:,chroot,helper
+01:26:32,root,688,0.0,0.4,272360,9424,?,Ssl,07:40,0:01,/usr/sbin/cups-browsed
+01:26:32,root,689,0.0,0.1,33124,3032,?,Ss,07:40,0:00,/usr/sbin/cron,-f
+01:26:32,root,690,0.0,0.1,25180,2688,?,Ss,07:40,0:00,/sbin/cgmanager,-m,name=systemd
+01:26:32,root,695,0.0,0.1,20052,2088,tty1,Ss+,07:40,0:00,/sbin/agetty,--noclear,tty1,linux
+01:26:32,root,696,0.5,0.8,289812,17388,?,Ssl,07:40,1:45,/usr/lib/policykit-1/polkitd,--no-debug
+01:26:32,lp,712,0.0,0.2,74192,5216,?,S,07:40,0:00,/usr/lib/cups/notifier/dbus,dbus://,
+01:26:32,root,713,0.0,0.3,69932,6156,?,Ss,07:40,0:01,/usr/sbin/sshd,-D
+01:26:32,root,721,0.0,0.2,39192,4848,?,Ss,07:40,0:00,/sbin/wpa_supplicant,-u,-s,-O,/run/wpa_supplicant
+01:26:32,nobody,732,0.0,0.1,52288,3904,?,S,07:40,0:00,/usr/sbin/dnsmasq,--no-resolv,--keep-in-foreground,--no-hosts,--bind-interfaces,--pid-file=/run/sendsigs.omit.d/network-manager.dnsmasq.pid,--listen-address=127.0.1.1,--conf-file=/var/run/NetworkManager/dnsmasq.conf,--cache-size=0,--proxy-dnssec,--enable-dbus=org.freedesktop.NetworkManager.dnsmasq,--conf-dir=/etc/NetworkManager/dnsmasq.d
+01:26:32,kernoops,865,0.0,0.1,45276,2648,?,Ss,07:40,0:00,/usr/sbin/kerneloops
+01:26:32,root,1018,0.0,0.3,352552,7300,?,SLsl,07:40,0:08,/usr/sbin/lightdm
+01:26:32,root,1026,0.1,2.1,281312,44080,tty7,Ss+,07:40,0:32,/usr/bin/X,-core,:0,-seat,seat0,-auth,/var/run/lightdm/root/:0,-nolisten,tcp,vt7,-novtswitch
+01:26:32,root,1096,0.0,0.3,230224,7976,?,Sl,07:41,0:00,lightdm,--session-child,12,19
+01:26:32,rtkit,1126,0.0,0.1,178820,2880,?,SNsl,07:41,0:00,/usr/lib/rtkit/rtkit-daemon
+01:26:32,root,1189,0.0,0.0,0,0,?,S<,07:42,0:00,[krfcommd]
+01:26:32,root,1190,0.0,0.5,280124,10208,?,Ssl,07:42,0:01,/usr/lib/upower/upowerd
+01:26:32,colord,1208,0.0,0.5,305144,10712,?,Ssl,07:43,0:09,/usr/lib/colord/colord
+01:26:32,navalk,1230,0.0,0.2,45164,5136,?,Ss,07:43,0:00,/lib/systemd/systemd,--user
+01:26:32,navalk,1231,0.0,0.0,143068,1908,?,S,07:43,0:00,(sd-pam),
+01:26:32,navalk,1245,0.0,0.3,292392,7280,?,Sl,07:43,0:00,/usr/bin/gnome-keyring-daemon,--daemonize,--login
+01:26:32,navalk,1260,0.0,0.2,45904,4568,?,Ss,07:43,0:00,/sbin/upstart,--user
+01:26:32,navalk,1356,0.0,0.2,43736,4316,?,Ss,07:44,0:02,dbus-daemon,--fork,--session,--address=unix:abstract=/tmp/dbus-6wHR6Uvwhp
+01:26:32,navalk,1368,0.0,0.4,88176,8916,?,Ss,07:44,0:02,/usr/lib/x86_64-linux-gnu/hud/window-stack-bridge
+01:26:32,navalk,1376,0.0,0.0,32296,252,?,S,07:44,0:00,upstart-udev-bridge,--daemon,--user
+01:26:32,navalk,1391,0.0,0.3,351104,6444,?,Ssl,07:44,0:00,/usr/bin/ibus-daemon,--daemonize,--xim
+01:26:32,navalk,1414,0.0,0.0,32304,1676,?,S,07:44,0:00,upstart-dbus-bridge,--daemon,--session,--user,--bus-name,session
+01:26:32,navalk,1415,0.0,0.0,32232,296,?,S,07:44,0:01,upstart-dbus-bridge,--daemon,--system,--user,--bus-name,system
+01:26:32,navalk,1428,0.0,0.0,40708,1876,?,S,07:44,0:00,upstart-file-bridge,--daemon,--user
+01:26:32,navalk,1432,0.0,1.7,670364,34968,?,Ssl,07:44,0:04,/usr/lib/x86_64-linux-gnu/hud/hud-service
+01:26:32,navalk,1434,0.0,1.4,796716,29328,?,Ssl,07:44,0:04,/usr/lib/unity-settings-daemon/unity-settings-daemon
+01:26:32,navalk,1439,0.0,0.3,337952,7908,?,Ssl,07:44,0:00,/usr/lib/at-spi2-core/at-spi-bus-launcher,--launch-immediately
+01:26:32,navalk,1440,0.0,0.6,759160,13848,?,Ssl,07:44,0:04,gnome-session,--session=ubuntu
+01:26:32,navalk,1446,0.0,1.5,634908,31708,?,Ssl,07:44,0:06,/usr/lib/unity/unity-panel-service
+01:26:32,navalk,1447,0.0,0.1,42856,3872,?,S,07:44,0:00,/usr/bin/dbus-daemon,--config-file=/etc/at-spi2/accessibility.conf,--nofork,--print-address,3
+01:26:32,navalk,1448,0.8,5.5,1181412,112052,?,Ssl,07:44,2:47,compiz
+01:26:32,navalk,1450,0.0,0.2,206928,5328,?,Sl,07:44,0:00,/usr/lib/at-spi2-core/at-spi2-registryd,--use-gnome-session
+01:26:32,navalk,1467,0.0,0.2,492492,5984,?,Sl,07:44,0:00,/usr/lib/gvfs/gvfsd
+01:26:32,navalk,1472,0.0,0.3,409032,7588,?,Sl,07:44,0:01,/usr/lib/gvfs/gvfsd-fuse,/run/user/1000/gvfs,-f,-o,big_writes
+01:26:32,navalk,1493,0.0,0.3,270500,6216,?,Sl,07:44,0:00,/usr/lib/ibus/ibus-dconf
+01:26:32,navalk,1494,0.0,1.4,473920,28844,?,Sl,07:44,0:02,/usr/lib/ibus/ibus-ui-gtk3
+01:26:32,navalk,1498,0.0,0.6,376768,13996,?,Sl,07:44,0:03,/usr/lib/ibus/ibus-x11,--kill-daemon
+01:26:32,navalk,1508,0.0,1.2,511664,25824,?,Sl,07:44,0:01,/usr/lib/x86_64-linux-gnu/bamf/bamfdaemon
+01:26:32,navalk,1509,0.0,0.3,194640,6100,?,Sl,07:44,0:00,/usr/lib/ibus/ibus-engine-simple
+01:26:32,navalk,1521,0.0,0.2,178632,4712,?,Sl,07:44,0:00,/usr/lib/dconf/dconf-service
+01:26:32,navalk,1530,0.0,0.5,434216,10928,?,Sl,07:44,0:01,/usr/bin/pulseaudio,--start,--log-target=syslog
+01:26:32,navalk,1563,0.0,0.6,363740,12756,?,Ssl,07:44,0:19,/usr/lib/x86_64-linux-gnu/indicator-messages/indicator-messages-service
+01:26:32,navalk,1564,0.0,0.2,337608,5432,?,Ssl,07:44,0:00,/usr/lib/x86_64-linux-gnu/indicator-bluetooth/indicator-bluetooth-service
+01:26:32,navalk,1565,0.0,0.2,492488,6092,?,Ssl,07:44,0:00,/usr/lib/x86_64-linux-gnu/indicator-power/indicator-power-service
+01:26:32,navalk,1567,0.0,0.8,767728,17588,?,Ssl,07:44,0:01,/usr/lib/x86_64-linux-gnu/indicator-datetime/indicator-datetime-service
+01:26:32,navalk,1568,0.0,1.2,656348,24968,?,Ssl,07:44,0:00,/usr/lib/x86_64-linux-gnu/indicator-keyboard/indicator-keyboard-service,--use-gtk
+01:26:32,navalk,1574,0.0,0.8,475352,17212,?,Ssl,07:44,0:17,/usr/lib/x86_64-linux-gnu/indicator-sound/indicator-sound-service
+01:26:32,navalk,1575,0.0,1.1,541336,23052,?,Ssl,07:44,0:00,/usr/lib/x86_64-linux-gnu/indicator-printers/indicator-printers-service
+01:26:32,navalk,1585,0.0,37.8,1394592,769612,?,Ssl,07:44,0:11,/usr/lib/x86_64-linux-gnu/indicator-session/indicator-session-service
+01:26:32,navalk,1595,0.0,0.5,469320,11756,?,Ssl,07:44,0:00,/usr/lib/x86_64-linux-gnu/indicator-application/indicator-application-service
+01:26:32,navalk,1596,0.0,2.3,912408,48140,?,Sl,07:44,0:11,nautilus,-n
+01:26:32,navalk,1601,0.0,1.0,425824,20404,?,Sl,07:44,0:01,/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+01:26:32,navalk,1609,0.0,1.9,665248,38840,?,Sl,07:44,0:05,nm-applet
+01:26:32,navalk,1610,0.1,1.2,477036,25908,?,Sl,07:44,0:31,/usr/bin/vmtoolsd,-n,vmusr,--blockFd,3
+01:26:32,navalk,1611,0.0,0.9,573264,19948,?,Sl,07:44,0:00,/usr/lib/unity-settings-daemon/unity-fallback-mount-helper
+01:26:32,navalk,1639,0.0,1.2,780788,24932,?,Sl,07:44,0:01,/usr/lib/evolution/evolution-source-registry
+01:26:32,navalk,1656,0.0,0.3,289516,7488,?,Sl,07:44,0:00,/usr/lib/gvfs/gvfs-udisks2-volume-monitor
+01:26:32,root,1683,0.0,0.4,367420,10104,?,Ssl,07:44,0:01,/usr/lib/udisks2/udisksd,--no-debug
+01:26:32,navalk,1691,0.0,0.3,66152,6352,?,S,07:44,0:00,/usr/lib/x86_64-linux-gnu/gconf/gconfd-2
+01:26:32,navalk,1698,0.0,0.4,403168,8812,?,Sl,07:44,0:00,/usr/lib/gvfs/gvfs-afc-volume-monitor
+01:26:32,navalk,1710,0.0,0.2,275816,5756,?,Sl,07:44,0:00,/usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+01:26:32,navalk,1715,0.0,1.1,548936,22568,?,Sl,07:44,0:00,telepathy-indicator
+01:26:32,navalk,1725,0.0,0.2,263620,4944,?,Sl,07:45,0:00,/usr/lib/gvfs/gvfs-mtp-volume-monitor
+01:26:32,navalk,1734,0.0,0.9,430008,20308,?,Sl,07:45,0:03,/usr/lib/telepathy/mission-control-5
+01:26:32,navalk,1747,0.0,0.7,551732,14512,?,Sl,07:45,0:01,zeitgeist-datahub
+01:26:32,navalk,1758,0.0,0.3,412528,7184,?,Sl,07:45,0:01,/usr/bin/zeitgeist-daemon
+01:26:32,navalk,1768,0.0,0.7,312696,15116,?,Sl,07:45,0:01,/usr/lib/x86_64-linux-gnu/zeitgeist-fts
+01:26:32,navalk,1783,0.0,0.2,344896,5852,?,Sl,07:45,0:00,/usr/lib/gvfs/gvfsd-burn,--spawner,:1.9,/org/gtk/gvfs/exec_spaw/0
+01:26:32,navalk,1791,0.0,1.4,563104,29756,?,Sl,07:45,0:03,update-notifier
+01:26:32,navalk,1799,0.0,0.2,349504,6040,?,Sl,07:45,0:01,/usr/lib/gvfs/gvfsd-trash,--spawner,:1.9,/org/gtk/gvfs/exec_spaw/1
+01:26:32,navalk,1812,0.0,0.2,190140,5236,?,Sl,07:46,0:00,/usr/lib/gvfs/gvfsd-metadata
+01:26:32,navalk,1826,0.0,0.4,441696,9108,?,Sl,07:46,0:01,/usr/lib/x86_64-linux-gnu/deja-dup/deja-dup-monitor
+01:26:32,navalk,2276,0.0,1.5,485724,31916,?,Sl,07:47,0:00,/usr/lib/x86_64-linux-gnu/notify-osd
+01:26:32,root,2280,0.0,0.5,23456,10208,?,S,07:47,0:00,/sbin/dhclient,-d,-q,-sf,/usr/lib/NetworkManager/nm-dhcp-helper,-pf,/run/sendsigs.omit.d/network-manager.dhclient-eno16777736.pid,-lf,/var/lib/NetworkManager/dhclient-4279f7dd-4af6-4b88-a385-48abb8e24dfc-eno16777736.lease,-cf,/var/lib/NetworkManager/dhclient-eno16777736.conf,eno16777736
+01:26:32,navalk,2694,0.0,1.3,741608,27144,?,Sl,07:48,0:00,/usr/lib/x86_64-linux-gnu/unity-scope-home/unity-scope-home
+01:26:32,navalk,2708,0.0,1.3,583068,27508,?,Sl,07:48,0:01,/usr/bin/unity-scope-loader,applications/applications.scope,applications/scopes.scope,commands.scope
+01:26:32,navalk,2709,0.0,0.6,562872,13444,?,Sl,07:48,0:00,/usr/lib/x86_64-linux-gnu/unity-lens-files/unity-files-daemon
+01:26:32,navalk,2734,0.0,0.7,339368,15664,?,Sl,07:48,0:00,/usr/lib/x86_64-linux-gnu/unity-lens-music/unity-music-daemon
+01:26:32,uuidd,2744,0.0,0.0,27592,1276,?,Ss,07:48,0:00,/usr/sbin/uuidd,--socket-activation
+01:26:32,navalk,2831,0.0,1.0,715084,20436,?,Sl,07:48,0:00,/usr/lib/gvfs/gvfsd-http,--spawner,:1.9,/org/gtk/gvfs/exec_spaw/3
+01:26:32,navalk,2885,0.0,1.6,645184,34436,?,Sl,07:48,0:02,/usr/lib/gnome-terminal/gnome-terminal-server
+01:26:32,navalk,2892,0.0,0.0,14852,1864,?,S,07:48,0:00,gnome-pty-helper
+01:26:32,navalk,2893,0.0,0.2,27096,5592,pts/2,Ss+,07:48,0:00,bash
+01:26:32,navalk,4637,0.0,1.4,554124,29224,?,Ssl,07:53,0:03,/usr/lib/unity/unity-panel-service,--lockscreen-mode
+01:26:32,root,30865,0.0,0.0,0,0,?,S,10:25,0:01,[kworker/u256:2]
+01:26:32,root,60737,0.0,0.0,0,0,?,S,13:00,0:00,[kworker/u256:0]
+01:26:32,root,60803,0.0,0.0,0,0,?,S,13:14,0:00,[kworker/0:1]
+01:26:32,root,60928,0.0,0.0,0,0,?,S,13:19,0:00,[kworker/0:2]
+01:26:32,root,61957,0.0,0.0,0,0,?,S,13:25,0:00,[kworker/0:0]
+01:26:32,root,62178,0.0,0.3,101868,7000,?,Ss,13:26,0:00,sshd:,navalk,[priv],
+01:26:32,navalk,62215,0.0,0.2,101868,5012,?,R,13:26,0:00,sshd:,navalk@pts/13,
+01:26:32,navalk,62216,0.0,0.2,27064,5384,pts/13,Ss,13:26,0:00,-bash
+01:26:32,navalk,62228,0.0,0.1,22676,2640,pts/13,R+,13:26,0:00,ps,-aux
+01:26:32,navalk,62229,0.0,0.0,20452,1712,pts/13,S+,13:26,0:00,sed,s/\s\+/,/g
