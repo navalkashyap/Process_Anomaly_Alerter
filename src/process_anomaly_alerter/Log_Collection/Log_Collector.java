@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 /**
  *
  * @author naval_
+ * This component take care of functionality of log collection and passing it into various 
+ * Data store
  */
 public class Log_Collector {
 

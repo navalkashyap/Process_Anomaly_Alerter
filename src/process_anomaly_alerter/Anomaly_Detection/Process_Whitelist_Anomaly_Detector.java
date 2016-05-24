@@ -27,8 +27,7 @@ public class Process_Whitelist_Anomaly_Detector {
 		SearchLogFiles(oldLogfile);
 		boolean isAnomalyFound = compareLogData(newLogfile);
 		if(isAnomalyFound && !isTrainingProcess) {
-			SendEmail sendEmailObject = new SendEmail();
-			sendEmailObject.SendEmail(anomaly, IPAddress);
+			SendEmail sendEmailObject = new SendEmail(anomaly, IPAddress);
 		}
 	}
 	

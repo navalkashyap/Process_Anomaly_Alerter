@@ -18,10 +18,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
-	void SendEmail(StringBuilder msg,String IpAdress){
+    public  SendEmail(StringBuilder msg,String IpAdress){
 		Properties props = new Properties();
                 final String hostEmail="bellevue148@gmail.com";
-                final String hostPassword="";
+                final String hostPassword="Bellevue@148";
                 props.put("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.socketFactory.port", "465");
 		props.put("mail.smtp.socketFactory.class",
@@ -39,14 +39,14 @@ public class SendEmail {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("bellevue148@gmail.com", "Anomaly Detection Tool"));                        
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("navalk@uw.edu"));
-                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("svasisht@uw.edu"));
-                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("swetha91@uw.edu"));
-                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
+                   //     message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("svasisht@uw.edu"));
+                   //     message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("swetha91@uw.edu"));
+                   //     message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
                         message.setSubject("Alert: Anomaly Processes Found in the Client Machine");
-			message.setText(msg + "\nThanks for using the tools\n");
+			message.setText(msg.toString() + "\nThanks for using the tools\n");
 			Transport.send(message);
 
-			System.out.println("Done");
+			System.out.println("Email sent");
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		} catch (UnsupportedEncodingException ex) {

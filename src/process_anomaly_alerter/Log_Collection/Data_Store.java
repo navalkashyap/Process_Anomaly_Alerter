@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package process_anomaly_alerter.Log_Collection;
 
 import java.io.BufferedReader;
@@ -20,9 +15,12 @@ import java.util.Scanner;
 /**
  *
  * @author naval_
+ * This method helps to fetch credentials of the clients 
+ * which are available to be connected to the server via the remote login service.
  */
 public class Data_Store {
-    
+
+
     public String[][] Fetch_Client_Credentials() {
 	String csvFile = "UserList.csv";
         File csv = new File(csvFile);
@@ -52,7 +50,8 @@ public class Data_Store {
     try {
         writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(host+".log"), StandardCharsets.UTF_8));
-// For appending the log file instead of overwriting                new FileOutputStream(Client_Name+"_"+host+".log",true), StandardCharsets.UTF_8));
+        // For appending the log file instead of overwriting
+        // new FileOutputStream(Client_Name+"_"+host+".log",true), StandardCharsets.UTF_8));
         writer.write(Log_Data);
     } catch (IOException ex) {
         return false;
