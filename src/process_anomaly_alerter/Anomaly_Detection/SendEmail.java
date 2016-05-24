@@ -44,7 +44,7 @@ public class SendEmail {
                         message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
                         message.setSubject("Alert: Anomaly Processes Found in the Client Machine:"+IpAddress);
 			message.setText(msg.toString() + "\nThanks for using the tools\n");
-			//Transport.send(message);
+			Transport.send(message);
 
 			System.out.println("Email sent for client "+IpAddress);
 		} catch (MessagingException e) {
