@@ -18,7 +18,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
-    public  SendEmail(StringBuilder msg,String IpAdress){
+    public  SendEmail(StringBuilder msg,String IpAddress){
 		Properties props = new Properties();
                 final String hostEmail="bellevue148@gmail.com";
                 final String hostPassword="Bellevue@148";
@@ -39,14 +39,14 @@ public class SendEmail {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("bellevue148@gmail.com", "Anomaly Detection Tool"));                        
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("navalk@uw.edu"));
-                   //     message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("svasisht@uw.edu"));
-                   //     message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("swetha91@uw.edu"));
-                   //     message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
-                        message.setSubject("Alert: Anomaly Processes Found in the Client Machine");
+                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("svasisht@uw.edu"));
+                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("swetha91@uw.edu"));
+                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
+                        message.setSubject("Alert: Anomaly Processes Found in the Client Machine:"+IpAddress);
 			message.setText(msg.toString() + "\nThanks for using the tools\n");
-			Transport.send(message);
+			//Transport.send(message);
 
-			System.out.println("Email sent");
+			System.out.println("Email sent for client "+IpAddress);
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		} catch (UnsupportedEncodingException ex) {
