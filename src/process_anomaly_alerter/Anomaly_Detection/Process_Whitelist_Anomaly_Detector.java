@@ -16,6 +16,7 @@ public class Process_Whitelist_Anomaly_Detector {
 	static StringBuilder anomaly = new StringBuilder();
 	static HashSet<String> oldLogHashSet = new HashSet<String>();
         static String trainingFile="Whitelist_Trained_Logs.log";
+        static String Alert_crit="Medium";
 	// This Constructor will be called by the Detection Initiator to execute the tool
 	// This tool will look at the new logs and find if there are new anomaly processes
 	// If yes, it will alert the Administrator
@@ -27,7 +28,7 @@ public class Process_Whitelist_Anomaly_Detector {
 		SearchLogFiles(oldLogfile);
 		boolean isAnomalyFound = compareLogData(newLogfile);
 		if(isAnomalyFound && !isTrainingProcess) {
-			SendEmail sendEmailObject = new SendEmail(anomaly, IPAddress);
+			SendEmail sendEmailObject = new SendEmail(anomaly, IPAddress, Alert_crit);
 		}
 	}
 	

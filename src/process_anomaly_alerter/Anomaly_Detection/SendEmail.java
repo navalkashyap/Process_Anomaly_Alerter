@@ -18,7 +18,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
-    public  SendEmail(StringBuilder msg,String IpAddress){
+    public  SendEmail(StringBuilder msg,String host, String msgSubject){
 		Properties props = new Properties();
                 final String hostEmail="bellevue148@gmail.com";
                 final String hostPassword="Bellevue@148";
@@ -42,11 +42,11 @@ public class SendEmail {
                         message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("svasisht@uw.edu"));
                         message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("swetha91@uw.edu"));
                         message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
-                        message.setSubject("Alert: Anomaly Processes Found in the Client Machine:"+IpAddress);
+                        message.setSubject("Alert: Anomaly Processes Found in the Client Machine:"+host);
 			message.setText(msg.toString() + "\nThanks for using the tools\n");
-			Transport.send(message);
+		//	Transport.send(message);
 
-			System.out.println("Email sent for client "+IpAddress);
+			System.out.println("Email sent for client "+msg+host);
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		} catch (UnsupportedEncodingException ex) {

@@ -32,9 +32,9 @@ public class Process_Memory_Anomaly_Detector {
 
     Process_Memory_Anomaly_Detector(File newLogfile, String host, boolean isTrainingProcess) {
         if(isTrainingProcess){
-            DetectAnomaly(newLogfile,host);
-        } else
             TrainDataSet(newLogfile,host);
+        } else
+            DetectAnomaly(newLogfile,host);
     }
     
     static String computeRange(String input,String lowerrange,String higherrange){
@@ -63,8 +63,10 @@ public class Process_Memory_Anomaly_Detector {
         String trainedFile = host+"_trained.log";
         String SplitBy = ",",SplitAlert="----";
         String alertFile = "Alert_"+host+".log";
+        String Alert_crit = "High";
         StringBuilder newAnomaly = new StringBuilder();
         StringBuilder alertData = new StringBuilder();
+        
         //File readData = new File(host+".log");
         File readAlertFile = new File(alertFile);
         String line,processName;
@@ -88,8 +90,7 @@ public class Process_Memory_Anomaly_Detector {
                                 if(!read_Alert.hasNextLine()){
                                     alertData.append(Alert);
                                     newAnomaly.append(Alert);
-                                    System.out.println("i1"+line);
-                                        
+                                    System.out.println("i1"+line);                                        
                                 } else {
                                     while(read_Alert.hasNextLine()){
                                         line = read_Alert.nextLine();
@@ -101,8 +102,7 @@ public class Process_Memory_Anomaly_Detector {
                                             alertData.append(Alert);
                                         }
                                     }
-                                }
-                                
+                                }                               
                             }      
                             break;
                         }
@@ -130,7 +130,7 @@ public class Process_Memory_Anomaly_Detector {
         }
         if(newAnomaly.length()!=0){
         //System.out.println("I am here \n"+newAnomaly.toString()+".......");
-            //SendEmail sendEmailObject = new SendEmail(newAnomaly, host);
+            SendEmail sendEmailObject = new SendEmail(newAnomaly, host, Alert_crit);
         }                    
     }
     

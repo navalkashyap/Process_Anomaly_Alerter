@@ -2,13 +2,11 @@ package process_anomaly_alerter.Anomaly_Detection;
 
 import java.io.BufferedReader;
 import java.io.File;
-import static java.io.FileDescriptor.in;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import static java.util.Collections.list;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -22,29 +20,36 @@ import java.util.Scanner;
 // This class demonstrates an anomaly detection tool that identifies a blacklisted process in the log file and throws an alert 
 public class BlackListAnomaly {    
 
+    String host = "";
+    String blacklistedFile = "blacklist.txt";
     
     public BlackListAnomaly(File newLogfile, String IPAddress, boolean isTrainingProcess) throws IOException {
+        this.host=IPAddress;
         readFromFile(newLogfile);
+        
     }
     
     //This method is used to read and split the log files to fetch the processName column
-    public static void readFromFile(File newLogfile) throws FileNotFoundException, IOException
+    public  void readFromFile(File newLogfile) throws FileNotFoundException, IOException
     {        
+        StringBuilder newAnomaly = new StringBuilder();
         Scanner SC = new Scanner(newLogfile);
-        String line;
-        while((line = SC.nextLine()) != null)
-        {
-            String[] splited = line.split(",");
-            
-            checkIfBlackListedProcess(splited[11]);
+        String Alert_crit = "High";
+        while(SC.hasNextLine()) {
+            String[] splited = SC.nextLine().split(",");
+            if(checkIfBlackListedProcess(splited[11]))
+                newAnomaly.append(splited[11]);
         }
         SC.close();
+        if(newAnomaly.length()!=0){
+            SendEmail sendEmailObject = new SendEmail(newAnomaly, host, Alert_crit);
+        }
     }
     // This method is used to check if a blacklist process is present in the log file
-    public static void checkIfBlackListedProcess(String processName) throws FileNotFoundException, IOException
+    public  Boolean checkIfBlackListedProcess(String processName) throws FileNotFoundException, IOException
     {
         //Reading from blacklist.txt to an ArrayList
-        BufferedReader in = new BufferedReader(new FileReader("blacklist.txt"));
+        BufferedReader in = new BufferedReader(new FileReader(blacklistedFile));
         String str;
         ArrayList<String> list = new ArrayList<String>();
         while((str = in.readLine()) != null){
@@ -55,10 +60,12 @@ public class BlackListAnomaly {
         // Loop through everything in arraylist and see check for each individual entry if there is full/ substring match in processname
         for (int i = 0; i<list.size(); i++)
         {
-          if(processName.contains(list.get(i)))
-          {
-              System.out.println("Alert!!! " + "Blacklist process "+ processName +" detected!!");
-          }
+            if(processName.contains(list.get(i)))
+            {
+                return true;
+              //System.out.println("Alert!!! " + "Blacklist process "+ processName +" detected!!");
+            }
         }
+        return false;
     }
 }
