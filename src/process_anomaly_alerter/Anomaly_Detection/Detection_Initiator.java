@@ -30,7 +30,8 @@ public class Detection_Initiator extends TimerTask {
                 new Process_Whitelist_Anomaly_Detector(new File(fileName), hostName, adminList,isTrainingProcess);
                 new Process_Memory_Anomaly_Detector(new File(fileName), hostName, adminList,isTrainingProcess ); 			
                 try {
-                    new BlackListAnomaly(new File(fileName), hostName, adminList,true);
+                    if(!isTrainingProcess)
+                        new BlackListAnomaly(new File(fileName), hostName, adminList,true);
                 } catch (IOException ex) {
                     Logger.getLogger(Detection_Initiator.class.getName()).log(Level.SEVERE, null, ex);
                 }

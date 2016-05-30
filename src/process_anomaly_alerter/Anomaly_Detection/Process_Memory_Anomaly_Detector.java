@@ -63,8 +63,7 @@ public class Process_Memory_Anomaly_Detector {
     }
     
     // If return is False : Alert occured first time for that host and need to alert the Admin
-    static Boolean AlertAlreadySent(String Process, String host) throws FileNotFoundException, IOException{
-        String alertFile = "Alert.log";
+    static Boolean AlertAlreadySent(String Process, String host, String alertFile) throws FileNotFoundException, IOException{
         String line="",updateAlert="",updateLine="",Split=",",BSplit=";";
         Boolean sendAlert=false;
         Date date = new Date(); 
@@ -131,7 +130,7 @@ public class Process_Memory_Anomaly_Detector {
                         String[] Data = line.split(SplitBy);
                         if(Data[0].equals(newData[11])){                                                            
                             if(compareRange(newData[4],Data[1],Data[2])) {            //Generate Alert
-                                if(AlertAlreadySent(newData[11],host))
+                                if(AlertAlreadySent(newData[11],host,"Alert_Memory_Anomaly.log"))
                                     newAnomaly.append("Process "+newData[11]+"\t"+newData[4]+"\n");
                             }      
                             break;
@@ -187,7 +186,6 @@ public class Process_Memory_Anomaly_Detector {
 	} catch (IOException e) {
             e.printStackTrace();
 	}
-        System.out.println(newtrainedData);
         Writer writer = null;
         try {
             writer = new BufferedWriter(new OutputStreamWriter(
