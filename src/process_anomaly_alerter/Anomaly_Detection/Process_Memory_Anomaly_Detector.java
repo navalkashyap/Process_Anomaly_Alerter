@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.RandomAccessFile;
@@ -50,6 +51,7 @@ public class Process_Memory_Anomaly_Detector {
         return range;
     }
     
+    // Return True: when input is outside the range
     static Boolean compareRange(String input,String lowerrange,String higherrange){
         if(Float.parseFloat(input)<Float.parseFloat(lowerrange))
             return true;
@@ -59,23 +61,65 @@ public class Process_Memory_Anomaly_Detector {
             return false;
     }
     
+    // If return is False : Alert occured first time for that host and need to alert the Admin
+    static Boolean AlertAlreadySent(String Process, String host) throws FileNotFoundException, IOException{
+        String alertFile = "Alert.log";
+        String line="",updateAlert="",updateLine="",Split=",",BSplit=";";
+        Boolean sendAlert=false;
+        Date date = new Date(); 
+        File readAlertFile = new File(alertFile);
+        if(!readAlertFile.exists())
+            readAlertFile.createNewFile();
+        Scanner read_Alert = new Scanner(readAlertFile);
+        int newAlertAdded = -1;         //Increment this counter whenever line was
+        while(read_Alert.hasNextLine()) {
+            line=read_Alert.nextLine();
+            if(line.contains(Process)){
+                newAlertAdded++;
+                updateAlert=updateAlert+line.split(BSplit)[0];
+                for(int i = 1;i<line.split(BSplit).length;i++){
+                    String temp = line.split(BSplit)[i];
+                    if(temp.contains(host)){
+                        if(date.getTime()-Long.parseLong(temp.split(Split)[1]) > 30000) {
+                            updateLine=updateLine+";"+host+","+date.getTime();
+                            sendAlert=true;
+                        } else 
+                            updateLine=updateLine+";"+temp;                        
+                    } else {
+                        updateLine=updateLine+";"+temp;
+                    }
+                }
+                if(!updateLine.contains(host)){
+                    updateLine=updateLine+";"+host+","+date.getTime();                          
+                    sendAlert=true;
+                }
+                updateAlert+=updateLine+"\n";
+            } else {
+                updateAlert=updateAlert+line+"\n";
+            }
+        }       
+        if(newAlertAdded==-1){    // this means this process never added before
+            updateAlert=updateAlert+Process+";"+host+","+date.getTime()+"\n";
+            sendAlert=true;
+        }
+        
+        FileWriter writeAlertFile = new FileWriter(alertFile);
+        writeAlertFile.write(updateAlert);
+        writeAlertFile.flush();
+        writeAlertFile.close();
+
+        return sendAlert;
+    }
+    
     static void DetectAnomaly(File newLogfile, String host){
         String trainedFile = host+"_trained.log";
-        String SplitBy = ",",SplitAlert="----";
-        String alertFile = "Alert_"+host+".log";
+        String SplitBy = ",";
         String Alert_crit = "High";
         StringBuilder newAnomaly = new StringBuilder();
-        StringBuilder alertData = new StringBuilder();
-        
-        //File readData = new File(host+".log");
-        File readAlertFile = new File(alertFile);
-        String line,processName;
-        Date date = new Date(); 
+        String line;
         try {
             RandomAccessFile trainedData = new RandomAccessFile(new File(trainedFile),"r");
             Scanner read_Data = new Scanner(newLogfile);
-            //Scanner read_Data = new Scanner(readData);
-            Scanner read_Alert = new Scanner(readAlertFile);
             long pointer=0;
             while(read_Data.hasNextLine()) {
                 String readLine = read_Data.nextLine();
@@ -84,31 +128,15 @@ public class Process_Memory_Anomaly_Detector {
                     pointer = trainedData.getFilePointer();
                     if((line = trainedData.readLine()) != null){
                         String[] Data = line.split(SplitBy);
-                        if(Data[11].equals(newData[11])){
-                            if(compareRange(newData[4],Data[12],Data[13])) {            //Generate Alert
-                                String Alert = "Process "+newData[11]+"\t"+newData[4]+SplitAlert+date.getTime()+"\n";
-                                if(!read_Alert.hasNextLine()){
-                                    alertData.append(Alert);
-                                    newAnomaly.append(Alert);
-                                    System.out.println("i1"+line);                                        
-                                } else {
-                                    while(read_Alert.hasNextLine()){
-                                        line = read_Alert.nextLine();
-                                        System.out.println("i am here! "+line);
-                                            
-                                        if((line.contains(newData[11]) && (date.getTime()-Long.parseLong(line.split(SplitAlert)[1]) > 30000))) {
-                                            System.out.println("i am here! "+newData[11]);
-                                            newAnomaly.append(Alert);
-                                            alertData.append(Alert);
-                                        }
-                                    }
-                                }                               
+                        if(Data[0].equals(newData[11])){                                                            
+                            if(compareRange(newData[4],Data[1],Data[2])) {            //Generate Alert
+                                if(AlertAlreadySent(newData[11],host))
+                                    newAnomaly.append("Process "+newData[11]+"\t"+newData[4]+"\n");
                             }      
                             break;
                         }
                     } else {
-                        trainedData.seek(pointer);
-                        break;
+                        trainedData.seek(pointer);                       
                     }                    
                 }
             }
@@ -118,19 +146,8 @@ public class Process_Memory_Anomaly_Detector {
 	} catch (IOException e) {
             e.printStackTrace();
 	}
-        Writer writer = null;
- 
-        try {
-            writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(alertFile), StandardCharsets.UTF_8));       
-            writer.write(alertData.toString());
-        } catch (IOException ex) {
-        } finally {
-            try {writer.close();} catch (Exception ex) {/*ignore*/}
-        }
         if(newAnomaly.length()!=0){
-        //System.out.println("I am here \n"+newAnomaly.toString()+".......");
-            SendEmail sendEmailObject = new SendEmail(newAnomaly, host, Alert_crit);
+            new SendEmail(newAnomaly.toString(), Alert_crit);
         }                    
     }
     
@@ -138,8 +155,7 @@ public class Process_Memory_Anomaly_Detector {
     static void TrainDataSet(File newLogfile,String host){
         String trainedFile = host+"_trained.log";
         String SplitBy = ",";
-        StringBuilder newtrainedData = new StringBuilder();;
-        //File readData = new File(host+".log");
+        StringBuilder newtrainedData = new StringBuilder();
         String line,range;
         try {
             RandomAccessFile trainedData = new RandomAccessFile(new File(trainedFile),"rw");
@@ -152,14 +168,14 @@ public class Process_Memory_Anomaly_Detector {
                     pointer = trainedData.getFilePointer();
                     if((line = trainedData.readLine()) != null){
                         String[] Data = line.split(SplitBy);
-                        if(Data[11].equals(newData[11])){
-                            range = computeRange(newData[4],Data[12],Data[13]);
-                            newtrainedData.append(readLine+range+"\n");
+                        if(Data[0].equals(newData[11])){
+                            range = computeRange(newData[4],Data[1],Data[2]);
+                            newtrainedData.append(newData[11]+range+"\n");
                             break;
                         }
                     } else {
                         trainedData.seek(pointer);
-                        newtrainedData.append(readLine+","+newData[4]+","+newData[4]+"\n");
+                        newtrainedData.append(newData[11]+","+newData[4]+","+newData[4]+"\n");
                         break;
                     }                    
                 }
@@ -170,6 +186,7 @@ public class Process_Memory_Anomaly_Detector {
 	} catch (IOException e) {
             e.printStackTrace();
 	}
+        System.out.println(newtrainedData);
         Writer writer = null;
         try {
             writer = new BufferedWriter(new OutputStreamWriter(

@@ -22,6 +22,7 @@ public class BlackListAnomaly {
 
     String host = "";
     String blacklistedFile = "blacklist.txt";
+    String emailSubject="High alert! Blacklisted process detected in host ";
     
     public BlackListAnomaly(File newLogfile, String IPAddress, boolean isTrainingProcess) throws IOException {
         this.host=IPAddress;
@@ -34,7 +35,6 @@ public class BlackListAnomaly {
     {        
         StringBuilder newAnomaly = new StringBuilder();
         Scanner SC = new Scanner(newLogfile);
-        String Alert_crit = "High";
         while(SC.hasNextLine()) {
             String[] splited = SC.nextLine().split(",");
             if(checkIfBlackListedProcess(splited[11]))
@@ -42,7 +42,7 @@ public class BlackListAnomaly {
         }
         SC.close();
         if(newAnomaly.length()!=0){
-            SendEmail sendEmailObject = new SendEmail(newAnomaly, host, Alert_crit);
+            new SendEmail(newAnomaly.toString(), emailSubject+host);
         }
     }
     // This method is used to check if a blacklist process is present in the log file

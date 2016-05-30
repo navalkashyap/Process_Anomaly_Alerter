@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Detection_Initiator extends TimerTask {
-    Boolean isTrainingProcess = true;
+    Boolean isTrainingProcess = false;
 	@Override
 	public void run() {
 		 Data_Store DS = new Data_Store();
@@ -18,14 +18,13 @@ public class Detection_Initiator extends TimerTask {
 		 {
 			String fileName =  Allusers[i][2] +".log"; 
 			//PLEASE NOTE: THIS IS NOT THE FINAL!! Parameters are to be added here properly after editing is done. 
-		//	new Process_Whitelist_Anomaly_Detector(new File(fileName), Allusers[i][2],isTrainingProcess);
-		//	new Process_Memory_Anomaly_Detector(new File(fileName), Allusers[i][2],isTrainingProcess ); 			
+			new Process_Whitelist_Anomaly_Detector(new File(fileName), Allusers[i][2],isTrainingProcess);
+			new Process_Memory_Anomaly_Detector(new File(fileName), Allusers[i][2],isTrainingProcess ); 			
                   try {
                          new BlackListAnomaly(new File(fileName), Allusers[i][2],true);
                      } catch (IOException ex) {
                          Logger.getLogger(Detection_Initiator.class.getName()).log(Level.SEVERE, null, ex);
                      }
-                             
                  }
 	} 
 	public void setTimer(){ 

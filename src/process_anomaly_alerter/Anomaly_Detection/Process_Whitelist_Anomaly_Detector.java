@@ -16,19 +16,19 @@ public class Process_Whitelist_Anomaly_Detector {
 	static StringBuilder anomaly = new StringBuilder();
 	static HashSet<String> oldLogHashSet = new HashSet<String>();
         static String trainingFile="Whitelist_Trained_Logs.log";
-        static String Alert_crit="Medium";
+        static String emailSubject="Medium alert! New process detected in host ";
 	// This Constructor will be called by the Detection Initiator to execute the tool
 	// This tool will look at the new logs and find if there are new anomaly processes
 	// If yes, it will alert the Administrator
 	// newLogFile: new log Fie object for fetching the new logs
 	// IPAddress: ip address of the client
 	// isTrainingProcess: It lets us know if the initiator has initiated a training process or not
-	public Process_Whitelist_Anomaly_Detector(File newLogfile, String IPAddress, boolean isTrainingProcess) {
+	public Process_Whitelist_Anomaly_Detector(File newLogfile, String host, boolean isTrainingProcess) {
 		File oldLogfile = new File(trainingFile);
 		SearchLogFiles(oldLogfile);
 		boolean isAnomalyFound = compareLogData(newLogfile);
 		if(isAnomalyFound && !isTrainingProcess) {
-			SendEmail sendEmailObject = new SendEmail(anomaly, IPAddress, Alert_crit);
+			new SendEmail(anomaly.toString(), emailSubject);
 		}
 	}
 	
