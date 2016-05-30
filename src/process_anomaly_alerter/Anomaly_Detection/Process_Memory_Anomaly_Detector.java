@@ -30,12 +30,13 @@ import static process_anomaly_alerter.Anomaly_Detection.Process_Whitelist_Anomal
  * @author naval_
  */
 public class Process_Memory_Anomaly_Detector {
-
-    Process_Memory_Anomaly_Detector(File newLogfile, String host, boolean isTrainingProcess) {
+    
+    Process_Memory_Anomaly_Detector(File newLogfile, String host, String emailList, boolean isTrainingProcess) {
+        
         if(isTrainingProcess){
             TrainDataSet(newLogfile,host);
         } else
-            DetectAnomaly(newLogfile,host);
+            DetectAnomaly(newLogfile,host,emailList);
     }
     
     static String computeRange(String input,String lowerrange,String higherrange){
@@ -111,10 +112,10 @@ public class Process_Memory_Anomaly_Detector {
         return sendAlert;
     }
     
-    static void DetectAnomaly(File newLogfile, String host){
+    static void DetectAnomaly(File newLogfile, String host,String emailList){
         String trainedFile = host+"_trained.log";
         String SplitBy = ",";
-        String Alert_crit = "High";
+        String emailSubject = "High Alert!! Some Process using unusal Memory in host ";
         StringBuilder newAnomaly = new StringBuilder();
         String line;
         try {
@@ -147,7 +148,7 @@ public class Process_Memory_Anomaly_Detector {
             e.printStackTrace();
 	}
         if(newAnomaly.length()!=0){
-            new SendEmail(newAnomaly.toString(), Alert_crit);
+            new SendEmail(emailList, newAnomaly.toString(), emailSubject+host);
         }                    
     }
     

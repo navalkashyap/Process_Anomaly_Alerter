@@ -18,7 +18,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class SendEmail {
-    public  SendEmail(String msg, String msgSubject){
+    public  SendEmail(String emailList, String msg, String msgSubject){
 		Properties props = new Properties();
                 final String hostEmail="no.reply.process.anomaly.alert@gmail.com";
                 final String hostPassword="anomaly_alerter";
@@ -37,16 +37,15 @@ public class SendEmail {
 			});
 		try {
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("bellevue148@gmail.com", "Anomaly Detection Tool"));                        
-			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse("navalk@uw.edu"));
-                 /*       message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("svasisht@uw.edu"));
-                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("swetha91@uw.edu"));
-                        message.addRecipients(Message.RecipientType.CC,InternetAddress.parse("abirami@uw.edu"));
-                   */     message.setSubject(msgSubject);
+			message.setFrom(new InternetAddress("no.reply.process.anomaly.alert@gmail.com", "Anomaly Detection Tool"));                        
+			for(int i =0; i<emailList.split(",").length;i++)
+                            message.addRecipients(Message.RecipientType.TO,InternetAddress.parse(emailList.split(",")[i]));
+                        
+                        message.setSubject(msgSubject);
 			message.setText(msg + "\nThanks for using the tools\n");
-		//	Transport.send(message);
+			//Transport.send(message);
 
-			System.out.println("Email sent for client "+msgSubject+msg);
+			System.out.println("Email sent for client "+emailList+" "+msgSubject);
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		} catch (UnsupportedEncodingException ex) {

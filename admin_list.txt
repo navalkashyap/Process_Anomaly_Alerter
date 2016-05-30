@@ -1,0 +1,2 @@
+192.168.188.133;navalk@uw.edu
+192.168.188.131;navalk@uw.edu,abirami@uw.edu,svasisht@uw.edu,swetha91@uw.edu

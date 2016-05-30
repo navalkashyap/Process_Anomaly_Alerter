@@ -23,12 +23,12 @@ public class Process_Whitelist_Anomaly_Detector {
 	// newLogFile: new log Fie object for fetching the new logs
 	// IPAddress: ip address of the client
 	// isTrainingProcess: It lets us know if the initiator has initiated a training process or not
-	public Process_Whitelist_Anomaly_Detector(File newLogfile, String host, boolean isTrainingProcess) {
+	public Process_Whitelist_Anomaly_Detector(File newLogfile, String host, String emailList, boolean isTrainingProcess) {
 		File oldLogfile = new File(trainingFile);
 		SearchLogFiles(oldLogfile);
 		boolean isAnomalyFound = compareLogData(newLogfile);
 		if(isAnomalyFound && !isTrainingProcess) {
-			new SendEmail(anomaly.toString(), emailSubject);
+			new SendEmail(emailList,anomaly.toString(), emailSubject+host);
 		}
 	}
 	

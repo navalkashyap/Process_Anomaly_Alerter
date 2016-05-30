@@ -1,6 +1,4 @@
 /sbin/init auto noprompt
-[kthreadd]
-[ksoftirqd/0]
 [kworker/0:0H]
 [rcu_sched]
 [rcu_bh]
@@ -11,7 +9,6 @@
 [khelper]
 [kdevtmpfs]
 [netns]
-[perf]
 [khungtaskd]
 [writeback]
 [ksmd]
@@ -24,7 +21,6 @@
 [md]
 [devfreq_wq]
 [kswapd0]
-[vmstat]
 [fsnotify_mark]
 [ecryptfs-kthrea]
 [kthrotld]
@@ -464,7 +460,6 @@ gnome-terminal
 [scsi_eh_26] 
 [scsi_tmf_26] 
 [scsi_eh_27] 
-[scsi_tmf_18] 
 gnome-terminal 
 [kworker/u16:0] 
 /sbin/dhclient -d -sf /usr/lib/NetworkManager/nm-dhcp-client.action -pf /run/sendsigs.omit.d/network-manager.dhclient-eth0.pid -lf /var/lib/NetworkManager/dhclient-1061a18f-2f3b-4a20-b287-c3410ac9d643-eth0.lease -cf /var/lib/NetworkManager/dhclient-eth0.conf eth0 

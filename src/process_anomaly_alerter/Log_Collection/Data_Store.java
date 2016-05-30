@@ -44,6 +44,26 @@ public class Data_Store {
         return Allusers;
     }
     
+    public String[] Fetch_list_of_Clients(){
+        File adminFile = new File("admin_list.txt");
+	String line = "";
+	String cvsSplitBy = ",";
+        int counter=0;
+        String[] adminList = new String[100];
+        try {
+                Scanner admin_list = new Scanner(adminFile);
+		while (admin_list.hasNextLine()) {
+			adminList[counter] = admin_list.nextLine();
+                        counter++;
+		}
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	} 
+        return adminList;
+    }
+    
     
    Boolean Store_Data(String Client_Name,String host, String Log_Data){
     Writer writer = null;
