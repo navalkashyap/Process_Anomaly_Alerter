@@ -45,7 +45,7 @@ public class Data_Store {
     }
     
     public String[] Fetch_list_of_Clients(){
-        File adminFile = new File("admin_list.txt");
+        File adminFile = new File("admin_list.csv");
 	String line = "";
 	String cvsSplitBy = ",";
         int counter=0;

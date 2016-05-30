@@ -12,6 +12,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import static process_anomaly_alerter.Anomaly_Detection.Process_Memory_Anomaly_Detector.AlertAlreadySent;
 
 /**
  *
@@ -37,9 +38,11 @@ public class BlackListAnomaly {
         StringBuilder newAnomaly = new StringBuilder();
         Scanner SC = new Scanner(newLogfile);
         while(SC.hasNextLine()) {
-            String[] splited = SC.nextLine().split(",");
-            if(checkIfBlackListedProcess(splited[11]))
-                newAnomaly.append(splited[11]);
+            String ProcessName = SC.nextLine().split(",")[11];
+            if(checkIfBlackListedProcess(ProcessName)){
+                if(AlertAlreadySent(ProcessName,host,"Alert_BlackList.log",600000))
+                    newAnomaly.append(ProcessName);
+            }
         }
         SC.close();
         if(newAnomaly.length()!=0){
