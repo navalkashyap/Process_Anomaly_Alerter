@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.Properties;
 import java.io.FileWriter;
 import java.io.IOException;
+import static process_anomaly_alerter.Anomaly_Detection.Process_Memory_Anomaly_Detector.AlertAlreadySent;
 
 // This class implies a Log Anomaly Detector tool that detects anomalies based on logs
 public class Process_Whitelist_Anomaly_Detector {
@@ -15,6 +16,7 @@ public class Process_Whitelist_Anomaly_Detector {
 	static ArrayList<String> anomalies = new ArrayList<String>();
 	static StringBuilder anomaly = new StringBuilder();
 	static HashSet<String> oldLogHashSet = new HashSet<String>();
+        static String host = "";
         static String trainingFile="Whitelist_Trained_Logs.log";
         static String emailSubject="Medium alert! New process detected in host ";
 	// This Constructor will be called by the Detection Initiator to execute the tool
@@ -26,6 +28,7 @@ public class Process_Whitelist_Anomaly_Detector {
 	public Process_Whitelist_Anomaly_Detector(File newLogfile, String host, String emailList, boolean isTrainingProcess) {
 		File oldLogfile = new File(trainingFile);
 		SearchLogFiles(oldLogfile);
+                this.host=host;
 		boolean isAnomalyFound = compareLogData(newLogfile);
 		if(isAnomalyFound && !isTrainingProcess) {
 			new SendEmail(emailList,anomaly.toString(), emailSubject+host);
@@ -67,8 +70,9 @@ public class Process_Whitelist_Anomaly_Detector {
 			while(scanNewLogFile.hasNextLine()) {
 				String logdata = FetchLastLogPart(scanNewLogFile.nextLine());
 				if(!oldLogHashSet.contains(logdata)) {
-						anomalies.add(logdata);
-						writeNewLogToOldLogs(writerOut, logdata);
+                                    if(AlertAlreadySent(logdata,host,"Alert_WhiteList_Anomaly.log",600000))
+                                        anomalies.add(logdata);
+						//writeNewLogToOldLogs(writerOut, logdata);
 					}
 			}
 			writerOut.close();

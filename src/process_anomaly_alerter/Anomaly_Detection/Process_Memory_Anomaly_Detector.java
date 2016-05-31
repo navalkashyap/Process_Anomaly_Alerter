@@ -114,7 +114,7 @@ public class Process_Memory_Anomaly_Detector {
     static void DetectAnomaly(File newLogfile, String host,String emailList){
         String trainedFile = host+"_trained.log";
         String SplitBy = ",";
-        String emailSubject = "High Alert!! Some Process using unusal Memory in host ";
+        String emailSubject = "Medium Alert!! Some Process using unusal Memory in host ";
         StringBuilder newAnomaly = new StringBuilder();
         String line;
         try {
